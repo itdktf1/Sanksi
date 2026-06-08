@@ -1,0 +1,1850 @@
+{
+  "S1PBNK": {
+    "nama": "Perbankan",
+    "sektor": "Perbankan",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2BUMM": {
+    "nama": "Bank Umum",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": ""
+  },
+  "S3BUMK": {
+    "nama": "Bank Umum Konvensional",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": "Bank Umum Konvensional"
+  },
+  "S3BUMS": {
+    "nama": "Bank Umum Syariah",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": "Bank Umum Syariah"
+  },
+  "S3BUUS": {
+    "nama": "Unit Usaha Syariah",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": "Unit Usaha Syariah"
+  },
+  "S3BKDN": {
+    "nama": "Kantor Cabang dari Bank Yang Berkedudukan di Luar Negeri",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": "Kantor Cabang dari Bank Yang Berkedudukan di Luar Negeri"
+  },
+  "SKBKLN": {
+    "nama": "Kantor Perwakilan dari Bank Yang Berkedudukan di Luar Negeri",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Umum",
+    "sub_sub_sektor": "Kantor Perwakilan dari Bank Yang Berkedudukan di Luar Negeri"
+  },
+  "S2BPRR": {
+    "nama": "Bank Perkreditan Rakyat (BPR)",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Perkreditan Rakyat (BPR)",
+    "sub_sub_sektor": ""
+  },
+  "S3BPRK": {
+    "nama": "Bank Perkreditan Rakyat (BPR) Konvensional",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Perkreditan Rakyat (BPR)",
+    "sub_sub_sektor": "Bank Perkreditan Rakyat (BPR) Konvensional"
+  },
+  "S3BPRS": {
+    "nama": "Bank Pembiayaan Rakyat (BPR) Syariah",
+    "sektor": "Perbankan",
+    "sub_sektor": "Bank Perkreditan Rakyat (BPR)",
+    "sub_sub_sektor": "Bank Pembiayaan Rakyat (BPR) Syariah"
+  },
+  "S2LPJP": {
+    "nama": "Lembaga Penunjang Perbankan",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": ""
+  },
+  "S3PRKT": {
+    "nama": "Lembaga Pemeringkat",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Lembaga Pemeringkat"
+  },
+  "S3BKAP": {
+    "nama": "Kantor Akuntan Publik",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Kantor Akuntan Publik"
+  },
+  "S3KJPP": {
+    "nama": "Kantor Jasa Penilai Publik",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Kantor Jasa Penilai Publik"
+  },
+  "S3KHKM": {
+    "nama": "Kantor Konsultan Hukum",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Kantor Konsultan Hukum"
+  },
+  "S3NRIS": {
+    "nama": "Kantor Notaris",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Kantor Notaris"
+  },
+  "S3KRIA": {
+    "nama": "Perusahaan Konsultan Aktuaria",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Perusahaan Konsultan Aktuaria"
+  },
+  "S3LPIK": {
+    "nama": "Lembaga Pengelola Informasi Perkreditan",
+    "sektor": "Perbankan",
+    "sub_sektor": "Lembaga Penunjang Perbankan",
+    "sub_sub_sektor": "Lembaga Pengelola Informasi Perkreditan"
+  },
+  "S2PROF": {
+    "nama": "Profesi Penunjang Perbankan",
+    "sektor": "Perbankan",
+    "sub_sektor": "Profesi Penunjang Perbankan",
+    "sub_sub_sektor": ""
+  },
+  "S3AKTN": {
+    "nama": "Akuntan Publik",
+    "sektor": "Perbankan",
+    "sub_sektor": "Profesi Penunjang Perbankan",
+    "sub_sub_sektor": "Akuntan Publik"
+  },
+  "S3NLAI": {
+    "nama": "Penilai",
+    "sektor": "Perbankan",
+    "sub_sektor": "Profesi Penunjang Perbankan",
+    "sub_sub_sektor": "Penilai"
+  },
+  "S2NOJK": {
+    "nama": "Pelapor SLIK Non LJK",
+    "sektor": "Perbankan",
+    "sub_sektor": "Pelapor SLIK Non LJK",
+    "sub_sub_sektor": ""
+  },
+  "S2BKSP": {
+    "nama": "Koperasi Simpan Pinjam",
+    "sektor": "Perbankan",
+    "sub_sektor": "Pelapor SLIK Non LJK",
+    "sub_sub_sektor": "Koperasi Simpan Pinjam"
+  },
+  "S2BPLL": {
+    "nama": "Pihak Lainnya-Perbankan",
+    "sektor": "Perbankan",
+    "sub_sektor": "Pihak Lainnya-Perbankan",
+    "sub_sub_sektor": ""
+  },
+  "S3BBKD": {
+    "nama": "Badan Kredit Desa",
+    "sektor": "Perbankan",
+    "sub_sektor": "Pihak Lainnya-Perbankan",
+    "sub_sub_sektor": "Badan Kredit Desa"
+  },
+  "S1PMDL": {
+    "nama": "Pasar Modal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2SSRO": {
+    "nama": "Self Regulatory Organization (SRO)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Self Regulatory Organization (SRO)",
+    "sub_sub_sektor": ""
+  },
+  "S3BEFK": {
+    "nama": "Bursa Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Self Regulatory Organization (SRO)",
+    "sub_sub_sektor": "Bursa Efek"
+  },
+  "S3KSEI": {
+    "nama": "Lembaga Penyimpanan dan Penyelesaian",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Self Regulatory Organization (SRO)",
+    "sub_sub_sektor": "Lembaga Penyimpanan dan Penyelesaian"
+  },
+  "S3KPEI": {
+    "nama": "Lembaga Kliring dan Penjaminan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Self Regulatory Organization (SRO)",
+    "sub_sub_sektor": "Lembaga Kliring dan Penjaminan"
+  },
+  "S3PSNB": {
+    "nama": "Penyelenggara Perdagangan Surat Utang Negara di luar bursa efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Self Regulatory Organization (SRO)",
+    "sub_sub_sektor": "Penyelenggara Perdagangan Surat Utang Negara di luar bursa efek"
+  },
+  "S2PEFK": {
+    "nama": "Perusahaan Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": ""
+  },
+  "S3PPEE": {
+    "nama": "Penjamin Emisi Efek (PEE)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Penjamin Emisi Efek (PEE)"
+  },
+  "S3PEFD": {
+    "nama": "Perusahaan Efek Daerah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Perusahaan Efek Daerah"
+  },
+  "S3PPEM": {
+    "nama": "Perantara Pedagang Efek yang Mengadministrasikan Rekening Efek Nasabah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Perantara Pedagang Efek yang Mengadministrasikan Rekening Efek Nasabah"
+  },
+  "S3PPET": {
+    "nama": "Perantara Pedagang Efek yang Tidak Mengadministrasikan Rekening Efek Nasabah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Perantara Pedagang Efek yang Tidak Mengadministrasikan Rekening Efek Nasabah"
+  },
+  "S3PPEU": {
+    "nama": "Perantara Pedagang Efek untuk Efek bersifat Utang dan Sukuk",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Perantara Pedagang Efek untuk Efek bersifat Utang dan Sukuk"
+  },
+  "S3FDIR": {
+    "nama": "Direktur Perusahaan Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Direktur Perusahaan Efek"
+  },
+  "S3FKOM": {
+    "nama": "Komisaris Perusahaan Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Komisaris Perusahaan Efek"
+  },
+  "S3WPEE": {
+    "nama": "Wakil Penjamin Emisi Efek (WPEE)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Wakil Penjamin Emisi Efek (WPEE)"
+  },
+  "S3WPPE": {
+    "nama": "Wakil Perantara Pedagang Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Wakil Perantara Pedagang Efek"
+  },
+  "S3WPEP": {
+    "nama": "Wakil Perantara Pedagang Efek (WPPE) Pemasaran",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Wakil Perantara Pedagang Efek (WPPE) Pemasaran"
+  },
+  "S3WPET": {
+    "nama": "Wakil Perantara Pedagang Efek (WPPE) Pemasaran Terbatas",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Efek",
+    "sub_sub_sektor": "Wakil Perantara Pedagang Efek (WPPE) Pemasaran Terbatas"
+  },
+  "S2PINV": {
+    "nama": "Pengelolaan Investasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": ""
+  },
+  "S3MINV": {
+    "nama": "Manajer Investasi (MI)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Manajer Investasi (MI)"
+  },
+  "S3PPPI": {
+    "nama": "Penasihat Investasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Penasihat Investasi"
+  },
+  "S3PPII": {
+    "nama": "Penasihat Investasi Individu",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Penasihat Investasi Individu"
+  },
+  "S3APRD": {
+    "nama": "Agen Penjual Efek Reksa Dana (APERD)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Agen Penjual Efek Reksa Dana (APERD)"
+  },
+  "S3WPRD": {
+    "nama": "Wakil Agen Penjual Efek Reksa Dana (WAPERD)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Wakil Agen Penjual Efek Reksa Dana (WAPERD)"
+  },
+  "S3WMIV": {
+    "nama": "Wakil Manajer Investasi (WMI)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Wakil Manajer Investasi (WMI)"
+  },
+  "S3PIVS": {
+    "nama": "Unit Pengelolaan Investasi Syariah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pengelolaan Investasi",
+    "sub_sub_sektor": "Unit Pengelolaan Investasi Syariah"
+  },
+  "S2EMTN": {
+    "nama": "Emiten",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": ""
+  },
+  "S3EPPB": {
+    "nama": "Perusahaan Perbankan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Perbankan"
+  },
+  "S3EPAS": {
+    "nama": "Perusahaan Asuransi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Asuransi"
+  },
+  "S3EPBY": {
+    "nama": "Perusahaan Pembiayaan (Emiten)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Pembiayaan (Emiten)"
+  },
+  "S3EPSK": {
+    "nama": "Perusahaan Sekuritas",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Sekuritas"
+  },
+  "S3EINV": {
+    "nama": "Perusahaan Investasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Investasi"
+  },
+  "S3EPDG": {
+    "nama": "Perusahaan Perdagangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Perdagangan"
+  },
+  "S3EPHB": {
+    "nama": "Perusahaan Perhubungan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Perhubungan"
+  },
+  "S3ETLK": {
+    "nama": "Perusahaan Telekomunikasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Telekomunikasi"
+  },
+  "S3EMDM": {
+    "nama": "Perusahaan Media Massa",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Media Massa"
+  },
+  "S3ETIF": {
+    "nama": "Perusahaan Teknologi Informasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Teknologi Informasi"
+  },
+  "S3EPRW": {
+    "nama": "Perusahaan Pariwisata",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Pariwisata"
+  },
+  "S3EJLL": {
+    "nama": "Perusahaan Jasa Lainnya",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Jasa Lainnya"
+  },
+  "S3EPRP": {
+    "nama": "Perusahaan Properti",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Properti"
+  },
+  "S3EHTL": {
+    "nama": "Perusahaan Perhotelan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Perhotelan"
+  },
+  "S3ERLS": {
+    "nama": "Perusahaan Real Estat",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Real Estat"
+  },
+  "S3TDIR": {
+    "nama": "Direktur Emiten",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Direktur Emiten"
+  },
+  "S3TKOM": {
+    "nama": "Komisaris Emiten",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Komisaris Emiten"
+  },
+  "S3IKDO": {
+    "nama": "Industri Inovasi Keuangan Digital (old)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Industri Inovasi Keuangan Digital (old)"
+  },
+  "S3EKTR": {
+    "nama": "Perusahaan Konstruksi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Konstruksi"
+  },
+  "S3ETKS": {
+    "nama": "Perusahaan Tekstil",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Tekstil"
+  },
+  "S3EGRM": {
+    "nama": "Perusahaan Garmen",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Garmen"
+  },
+  "S3EAKK": {
+    "nama": "Perusahaan Alas Kaki",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Alas Kaki"
+  },
+  "S3EBKS": {
+    "nama": "Perusahaan Barang Konsumsi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Barang Konsumsi"
+  },
+  "S3EAIL": {
+    "nama": "Perusahaan Aneka Industri Lainnya",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Aneka Industri Lainnya"
+  },
+  "S3EIDS": {
+    "nama": "Perusahaan Industri Dasar",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Industri Dasar"
+  },
+  "S3EILG": {
+    "nama": "Perusahaan Industri Logam",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Industri Logam"
+  },
+  "S3EIKM": {
+    "nama": "Perusahaan Industri Kimia",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Industri Kimia"
+  },
+  "S3ETMB": {
+    "nama": "Perusahaan Pertambangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Pertambangan"
+  },
+  "S3EHTN": {
+    "nama": "Perusahaan Kehutanan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Kehutanan"
+  },
+  "S3EGRB": {
+    "nama": "Perusahaan Agrobisnis",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Perusahaan Agrobisnis"
+  },
+  "S3EPDR": {
+    "nama": "Pemerintah Daerah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten",
+    "sub_sub_sektor": "Pemerintah Daerah"
+  },
+  "S2PRPB": {
+    "nama": "Perusahaan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": ""
+  },
+  "S3PPPB": {
+    "nama": "Perusahaan Perbankan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Perbankan"
+  },
+  "S3PPAS": {
+    "nama": "Perusahaan Asuransi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Asuransi"
+  },
+  "S3PPSK": {
+    "nama": "Perusahaan Sekuritas",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Sekuritas"
+  },
+  "S3PINV": {
+    "nama": "Perusahaan Investasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Investasi"
+  },
+  "S3PPDG": {
+    "nama": "Perusahaan Perdagangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Perdagangan"
+  },
+  "S3PPHB": {
+    "nama": "Perusahaan Perhubungan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Perhubungan"
+  },
+  "S3PTLK": {
+    "nama": "Perusahaan Telekomunikasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Telekomunikasi"
+  },
+  "S3PMDM": {
+    "nama": "Perusahaan Media Massa",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Media Massa"
+  },
+  "S3PTIF": {
+    "nama": "Perusahaan Teknologi Informasi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Teknologi Informasi"
+  },
+  "S3PPRW": {
+    "nama": "Perusahaan Pariwisata",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Pariwisata"
+  },
+  "S3PJLL": {
+    "nama": "Perusahaan Jasa Lainnya",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Jasa Lainnya"
+  },
+  "S3PPRP": {
+    "nama": "Perusahaan Properti",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Properti"
+  },
+  "S3PHTL": {
+    "nama": "Perusahaan Perhotelan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Perhotelan"
+  },
+  "S3PRLS": {
+    "nama": "Perusahaan Real Estat",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Real Estat"
+  },
+  "S3PPBY": {
+    "nama": "Perusahaan Pembiayaan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Pembiayaan"
+  },
+  "S3PKTR": {
+    "nama": "Perusahaan Konstruksi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Konstruksi"
+  },
+  "S3PTKS": {
+    "nama": "Perusahaan Tekstil",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Tekstil"
+  },
+  "S3PGRM": {
+    "nama": "Perusahaan Garmen",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Garmen"
+  },
+  "S3PAKK": {
+    "nama": "Perusahaan Alas Kaki",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Alas Kaki"
+  },
+  "S3PBKS": {
+    "nama": "Perusahaan Barang Konsumsi",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Barang Konsumsi"
+  },
+  "S3PAIL": {
+    "nama": "Perusahaan Aneka Industri Lainnya",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Aneka Industri Lainnya"
+  },
+  "S3PIDS": {
+    "nama": "Perusahaan Industri Dasar",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Industri Dasar"
+  },
+  "S3PILG": {
+    "nama": "Perusahaan Industri Logam",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Industri Logam"
+  },
+  "S3PIKM": {
+    "nama": "Perusahaan Industri Kimia",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Industri Kimia"
+  },
+  "S3PTMB": {
+    "nama": "Perusahaan Pertambangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Pertambangan"
+  },
+  "S3PHTN": {
+    "nama": "Perusahaan Kehutanan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Kehutanan"
+  },
+  "S3PGRB": {
+    "nama": "Perusahaan Agrobisnis",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Perusahaan Agrobisnis"
+  },
+  "S3PDIR": {
+    "nama": "Direktur Perusahaan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Direktur Perusahaan Publik"
+  },
+  "S3PKOM": {
+    "nama": "Komisaris Perusahaan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Perusahaan Publik",
+    "sub_sub_sektor": "Komisaris Perusahaan Publik"
+  },
+  "S2EPOS": {
+    "nama": "Emiten Penerbit Obligasi/Sukuk Daerah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Emiten Penerbit Obligasi/Sukuk Daerah",
+    "sub_sub_sektor": ""
+  },
+  "S2EQCF": {
+    "nama": "Platform Equity Crowdfunding",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Platform Equity Crowdfunding",
+    "sub_sub_sektor": ""
+  },
+  "S2PDPP": {
+    "nama": "Penyelenggara Dana Perlindungan Pemodal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Penyelenggara Dana Perlindungan Pemodal",
+    "sub_sub_sektor": ""
+  },
+  "S2LPEF": {
+    "nama": "Lembaga Pendanaan Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Pendanaan Efek",
+    "sub_sub_sektor": ""
+  },
+  "S2ASPM": {
+    "nama": "Ahli Syariah Pasar Modal (ASPM)",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Ahli Syariah Pasar Modal (ASPM)",
+    "sub_sub_sektor": ""
+  },
+  "S3ASBU": {
+    "nama": "ASPM Badan Usaha",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Ahli Syariah Pasar Modal (ASPM)",
+    "sub_sub_sektor": "ASPM Badan Usaha"
+  },
+  "S3ASOP": {
+    "nama": "ASPM Orang Perseorangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Ahli Syariah Pasar Modal (ASPM)",
+    "sub_sub_sektor": "ASPM Orang Perseorangan"
+  },
+  "S2LSPM": {
+    "nama": "Lembaga Sertifikasi Profesi Pasar Modal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Sertifikasi Profesi Pasar Modal",
+    "sub_sub_sektor": ""
+  },
+  "S2LPPM": {
+    "nama": "Lembaga Penunjang Pasar Modal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": ""
+  },
+  "S3MKAP": {
+    "nama": "Kantor Akuntan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Kantor Akuntan Publik"
+  },
+  "S3BKST": {
+    "nama": "Bank Kustodian",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Bank Kustodian"
+  },
+  "S3BBAE": {
+    "nama": "Biro Administrasi Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Biro Administrasi Efek"
+  },
+  "S3WAMT": {
+    "nama": "Wali Amanat",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Wali Amanat"
+  },
+  "S3PMEF": {
+    "nama": "Perusahaan Pemeringkat Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Perusahaan Pemeringkat Efek"
+  },
+  "S3PNHE": {
+    "nama": "Lembaga Penilai Harga Efek",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Lembaga Penilai Harga Efek"
+  },
+  "S3LPIP": {
+    "nama": "Lembaga Pengelola Informasi Perkreditan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Lembaga Pengelola Informasi Perkreditan"
+  },
+  "S3LMPM": {
+    "nama": "Lembaga Pemeringkat",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Lembaga Pemeringkat"
+  },
+  "S3MKJP": {
+    "nama": "Kantor Jasa Penilai Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Kantor Jasa Penilai Publik"
+  },
+  "S3MHUM": {
+    "nama": "Kantor Konsultan Hukum",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Kantor Konsultan Hukum"
+  },
+  "S3MNRS": {
+    "nama": "Kantor Notaris",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Kantor Notaris"
+  },
+  "S3MRIA": {
+    "nama": "Perusahaan Konsultan Aktuaria",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Perusahaan Konsultan Aktuaria"
+  },
+  "S3PPDS": {
+    "nama": "Pihak Penerbit Daftar Efek Syariah",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Pihak Penerbit Daftar Efek Syariah"
+  },
+  "S3LPML": {
+    "nama": "Lembaga Penunjang Pasar Modal Lainnya",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Lembaga Penunjang Pasar Modal",
+    "sub_sub_sektor": "Lembaga Penunjang Pasar Modal Lainnya"
+  },
+  "S2PPPM": {
+    "nama": "Profesi Penunjang Pasar Modal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Profesi Penunjang Pasar Modal",
+    "sub_sub_sektor": ""
+  },
+  "S3MAKT": {
+    "nama": "Akuntan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Profesi Penunjang Pasar Modal",
+    "sub_sub_sektor": "Akuntan Publik"
+  },
+  "S3MHKM": {
+    "nama": "Konsultan Hukum",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Profesi Penunjang Pasar Modal",
+    "sub_sub_sektor": "Konsultan Hukum"
+  },
+  "S3MLAI": {
+    "nama": "Penilai",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Profesi Penunjang Pasar Modal",
+    "sub_sub_sektor": "Penilai"
+  },
+  "S3MTRS": {
+    "nama": "Notaris",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Profesi Penunjang Pasar Modal",
+    "sub_sub_sektor": "Notaris"
+  },
+  "S2PSPP": {
+    "nama": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sub_sub_sektor": ""
+  },
+  "S3SORG": {
+    "nama": "Pemegang Saham - Perorangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sub_sub_sektor": "Pemegang Saham - Perorangan"
+  },
+  "S3LMBG": {
+    "nama": "Pemegang Saham - Lembaga",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sub_sub_sektor": "Pemegang Saham - Lembaga"
+  },
+  "S3ORGA": {
+    "nama": "Pemegang Saham - Perorangan - Asing",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sub_sub_sektor": "Pemegang Saham - Perorangan - Asing"
+  },
+  "S3MBGA": {
+    "nama": "Pemegang Saham - lembaga - Asing",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pemegang Saham Emiten dan Perusahaan Publik",
+    "sub_sub_sektor": "Pemegang Saham - lembaga - Asing"
+  },
+  "S2PLTE": {
+    "nama": "Partisipan CTP PLTE",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Partisipan CTP PLTE",
+    "sub_sub_sektor": ""
+  },
+  "S3LTEO": {
+    "nama": "Participan CTP PLTE - Perorangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Partisipan CTP PLTE",
+    "sub_sub_sektor": "Participan CTP PLTE - Perorangan"
+  },
+  "S3LTEG": {
+    "nama": "Participan CTP PLTE - Lembaga",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Partisipan CTP PLTE",
+    "sub_sub_sektor": "Participan CTP PLTE - Lembaga"
+  },
+  "S2PHKL": {
+    "nama": "Pihak Lainnya-Pasar Modal",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pihak Lainnya-Pasar Modal",
+    "sub_sub_sektor": ""
+  },
+  "S3BGLL": {
+    "nama": "Lembaga",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pihak Lainnya-Pasar Modal",
+    "sub_sub_sektor": "Lembaga"
+  },
+  "S3ORGL": {
+    "nama": "Perorangan",
+    "sektor": "Pasar Modal",
+    "sub_sektor": "Pihak Lainnya-Pasar Modal",
+    "sub_sub_sektor": "Perorangan"
+  },
+  "S1IKNB": {
+    "nama": "IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2PASR": {
+    "nama": "Perasuransian",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": ""
+  },
+  "S3PAJK": {
+    "nama": "Asuransi Jiwa Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Jiwa Konvensional"
+  },
+  "S3PAJS": {
+    "nama": "Asuransi Jiwa Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Jiwa Syariah"
+  },
+  "S3PAUK": {
+    "nama": "Asuransi Umum Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Umum Konvensional"
+  },
+  "S3PAUS": {
+    "nama": "Asuransi Umum Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Umum Syariah"
+  },
+  "S3PRSK": {
+    "nama": "Reasuransi Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Reasuransi Konvensional"
+  },
+  "S3PRSS": {
+    "nama": "Reasuransi Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Reasuransi Syariah"
+  },
+  "S3PASW": {
+    "nama": "Asuransi Wajib",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Wajib"
+  },
+  "S3SIAL": {
+    "nama": "Asuransi Sosial",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asuransi Sosial"
+  },
+  "S3ASSO": {
+    "nama": "Asosiasi",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Asosiasi"
+  },
+  "S3AJUS": {
+    "nama": "Perusahaan Asuransi Jiwa (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Perusahaan Asuransi Jiwa (Unit Usaha Syariah)"
+  },
+  "S3AMUS": {
+    "nama": "Perusahaan Asuransi Umum (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Perusahaan Asuransi Umum (Unit Usaha Syariah)"
+  },
+  "S3RSUS": {
+    "nama": "Perusahaan Reasuransi (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Perasuransian",
+    "sub_sub_sektor": "Perusahaan Reasuransi (Unit Usaha Syariah)"
+  },
+  "S2LPBY": {
+    "nama": "Lembaga Pembiayaan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": ""
+  },
+  "S3PPBK": {
+    "nama": "Perusahaan Pembiayaan Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Konvensional"
+  },
+  "S3PPBS": {
+    "nama": "Perusahaan Pembiayaan Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Syariah"
+  },
+  "S3MVKL": {
+    "nama": "Modal Ventura Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Modal Ventura Konvensional"
+  },
+  "S3MVSY": {
+    "nama": "Modal Ventura Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Modal Ventura Syariah"
+  },
+  "S3PPIK": {
+    "nama": "Perusahaan Pembiayaan Infrastruktur Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Infrastruktur Konvensional"
+  },
+  "S3PPIS": {
+    "nama": "Perusahaan Pembiayaan Infrastruktur Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Infrastruktur Syariah"
+  },
+  "S3PPUS": {
+    "nama": "Perusahaan Pembiayaan (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan (Unit Usaha Syariah)"
+  },
+  "S3MVUS": {
+    "nama": "Modal Ventura (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Modal Ventura (Unit Usaha Syariah)"
+  },
+  "S3PIUS": {
+    "nama": "Perusahaan Pembiayaan Infrastruktur (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Pembiayaan",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Infrastruktur (Unit Usaha Syariah)"
+  },
+  "S2DAPN": {
+    "nama": "Dana Pensiun",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun",
+    "sub_sub_sektor": ""
+  },
+  "S3DPKK": {
+    "nama": "Dana Pensiun Pemberi Kerja (DPPK)",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun",
+    "sub_sub_sektor": "Dana Pensiun Pemberi Kerja (DPPK)"
+  },
+  "S3PMPK": {
+    "nama": "Dana Pensiun Pemberi Kerja - Program Manfaat Pasti (DPPK-PPMP)",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun",
+    "sub_sub_sektor": "Dana Pensiun Pemberi Kerja - Program Manfaat Pasti (DPPK-PPMP)"
+  },
+  "S3PIPK": {
+    "nama": "Dana Pensiun Pemberi Kerja - Program Iuran Pasti (DPPK-PPIP)",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun",
+    "sub_sub_sektor": "Dana Pensiun Pemberi Kerja - Program Iuran Pasti (DPPK-PPIP)"
+  },
+  "S3DPLK": {
+    "nama": "Dana Pensiun Lembaga Keuangan (DPLK)",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun",
+    "sub_sub_sektor": "Dana Pensiun Lembaga Keuangan (DPLK)"
+  },
+  "S2DPNS": {
+    "nama": "Dana Pensiun Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun Syariah",
+    "sub_sub_sektor": ""
+  },
+  "S3DAPS": {
+    "nama": "Dana Pensiun Pemberi Kerja (DPPK) Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun Syariah",
+    "sub_sub_sektor": "Dana Pensiun Pemberi Kerja (DPPK) Syariah"
+  },
+  "S3PLKS": {
+    "nama": "Dana Pensiun Lembaga Keuangan (DPLK) Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Dana Pensiun Syariah",
+    "sub_sub_sektor": "Dana Pensiun Lembaga Keuangan (DPLK) Syariah"
+  },
+  "S2LJKL": {
+    "nama": "Lembaga Jasa Keuangan Lainnya",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": ""
+  },
+  "S3BPKS": {
+    "nama": "Badan Penyelenggara Jaminan Sosial Kesehatan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Badan Penyelenggara Jaminan Sosial Kesehatan"
+  },
+  "S3BPTK": {
+    "nama": "Badan Penyelenggara Jaminan Sosial Ketenagakerjaan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Badan Penyelenggara Jaminan Sosial Ketenagakerjaan"
+  },
+  "S3LPEI": {
+    "nama": "Lembaga Pembiayaan Ekspor Indonesia (LPEI)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Lembaga Pembiayaan Ekspor Indonesia (LPEI)"
+  },
+  "S3GDIK": {
+    "nama": "Pergadaian Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian Konvensional"
+  },
+  "S3GDIS": {
+    "nama": "Pergadaian Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian Syariah"
+  },
+  "S3PNJK": {
+    "nama": "Perusahaan Penjaminan Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan Konvensional"
+  },
+  "S3PNJS": {
+    "nama": "Perusahaan Penjaminan Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan Syariah"
+  },
+  "S3PLUK": {
+    "nama": "Perusahaan Penjaminan Ulang Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan Ulang Konvensional"
+  },
+  "S3PLSY": {
+    "nama": "Perusahaan Penjaminan Ulang Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan Ulang Syariah"
+  },
+  "S3PJUS": {
+    "nama": "Perusahaan Penjaminan (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan (Unit Usaha Syariah)"
+  },
+  "S3PLUS": {
+    "nama": "Perusahaan Penjaminan Ulang (Unit Usaha Syariah)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penjaminan Ulang (Unit Usaha Syariah)"
+  },
+  "S3PPSP": {
+    "nama": "Perusahaan Pembiayaan Sekunder Perumahan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Pembiayaan Sekunder Perumahan"
+  },
+  "S3PDNM": {
+    "nama": "Permodalan Nasional Madani",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Permodalan Nasional Madani"
+  },
+  "S3DRKS": {
+    "nama": "PT Danareksa (Persero)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "PT Danareksa (Persero)"
+  },
+  "S3PJII": {
+    "nama": "Penjaminan Infrastruktur Indonesia",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Penjaminan Infrastruktur Indonesia"
+  },
+  "S3JKDO": {
+    "nama": "Perum Jamkrido",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perum Jamkrido"
+  },
+  "S3JKDA": {
+    "nama": "Jamkrida",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Jamkrida"
+  },
+  "S3TSPN": {
+    "nama": "PT Taspen Persero",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "PT Taspen Persero"
+  },
+  "S3SBRI": {
+    "nama": "PT ASABRI Persero",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "PT ASABRI Persero"
+  },
+  "S3GDKP": {
+    "nama": "Pergadaian Kantor Pusat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian Kantor Pusat"
+  },
+  "S3GKPS": {
+    "nama": "Pergadaian Syariah Kantor Pusat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian Syariah Kantor Pusat"
+  },
+  "S3GKJKT": {
+    "nama": "Pergadaian KR 1 Jakarta dan Banten",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 1 Jakarta dan Banten"
+  },
+  "S3GDBR": {
+    "nama": "Pergadaian KR 2 Jawa Barat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 2 Jawa Barat"
+  },
+  "S3GDJT": {
+    "nama": "Pergadaian KR 3 Jawa Tengah dan Daerah Istimewa Yogyakarta",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 3 Jawa Tengah dan Daerah Istimewa Yogyakarta"
+  },
+  "S3GDTM": {
+    "nama": "Pergadaian KR 4 Jawa Timur",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 4 Jawa Timur"
+  },
+  "S3GDSU": {
+    "nama": "Pergadaian KR 5 Sumatera Bagian Utara",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 5 Sumatera Bagian Utara"
+  },
+  "S3GDWS": {
+    "nama": "Pergadaian KR 6 Sulawesi, Maluku, dan Papua",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 6 Sulawesi, Maluku, dan Papua"
+  },
+  "S3GDSS": {
+    "nama": "Pergadaian KR 7 Sumatera Bagian Selatan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 7 Sumatera Bagian Selatan"
+  },
+  "S3GDBL": {
+    "nama": "Pergadaian KR 8 Bali dan Nusa Tenggara",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 8 Bali dan Nusa Tenggara"
+  },
+  "S3GDMT": {
+    "nama": "Pergadaian KR 9 Kalimantan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KR 9 Kalimantan"
+  },
+  "S3GDBT": {
+    "nama": "Pergadaian KOJK Provinsi Banten",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Banten"
+  },
+  "S3GCCB": {
+    "nama": "Pergadaian KOJK Cirebon",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Cirebon"
+  },
+  "S3GDLY": {
+    "nama": "Pergadaian KOJK Tasikmalaya",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Tasikmalaya"
+  },
+  "S3GDYG": {
+    "nama": "Pergadaian KOJK Daerah Istimewa Yogyakarta",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Daerah Istimewa Yogyakarta"
+  },
+  "S3GDSO": {
+    "nama": "Pergadaian KOJK Solo",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Solo"
+  },
+  "S3GDPW": {
+    "nama": "Pergadaian KOJK Purwokerto",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Purwokerto"
+  },
+  "S3GDTG": {
+    "nama": "Pergadaian KOJK Tegal",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Tegal"
+  },
+  "S3GDML": {
+    "nama": "Pergadaian KOJK Malang",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Malang"
+  },
+  "S3GDJM": {
+    "nama": "Pergadaian KOJK Jember",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Jember"
+  },
+  "S3GDRI": {
+    "nama": "Pergadaian KOJK Kediri",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Kediri"
+  },
+  "S3GDAC": {
+    "nama": "Pergadaian KOJK Provinsi Aceh",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Aceh"
+  },
+  "S3GDSB": {
+    "nama": "Pergadaian KOJK Provinsi Sumatera Barat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Sumatera Barat"
+  },
+  "S3GDAU": {
+    "nama": "Pergadaian KOJK Provinsi Riau",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Riau"
+  },
+  "S3GDKR": {
+    "nama": "Pergadaian KOJK Kepulauan Riau",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Kepulauan Riau"
+  },
+  "S3GDWT": {
+    "nama": "Pergadaian KOJK Provinsi Sulawesi Tenggara",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Sulawesi Tenggara"
+  },
+  "S3GDWU": {
+    "nama": "Pergadaian KOJK Provinsi Sulawesi Utara",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Sulawesi Utara"
+  },
+  "S3GDWH": {
+    "nama": "Pergadaian KOJK Provinsi Sulawesi Tengah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Sulawesi Tengah"
+  },
+  "S3GDGR": {
+    "nama": "Pergadaian KOJK Provinsi Gorontalo",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Gorontalo"
+  },
+  "S3GDLO": {
+    "nama": "Pergadaian KOJK Provinsi Maluku",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Maluku"
+  },
+  "S3GDUA": {
+    "nama": "Pergadaian KOJK Provinsi Papua",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Papua"
+  },
+  "S3GDPB": {
+    "nama": "Pergadaian KOJK Provinsi Papua Barat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Papua Barat"
+  },
+  "S3GDBI": {
+    "nama": "Pergadaian KOJK Provinsi Jambi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Jambi"
+  },
+  "S3GDLU": {
+    "nama": "Pergadaian KOJK Provinsi Bengkulu",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Bengkulu"
+  },
+  "S3GDBB": {
+    "nama": "Pergadaian KOJK Provinsi Bangka Belitung",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Bangka Belitung"
+  },
+  "S3GDLG": {
+    "nama": "Pergadaian KOJK Provinsi Lampung",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Lampung"
+  },
+  "S3GDTB": {
+    "nama": "Pergadaian KOJK Provinsi NTB",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi NTB"
+  },
+  "S3GDTT": {
+    "nama": "Pergadaian KOJK Provinsi NTT",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi NTT"
+  },
+  "S3GDKB": {
+    "nama": "Pergadaian KOJK Provinsi Kalimantan Barat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Kalimantan Barat"
+  },
+  "S3GDKH": {
+    "nama": "Pergadaian KOJK Provinsi Kalimantan Tengah",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Kalimantan Tengah"
+  },
+  "S3GDKT": {
+    "nama": "Pergadaian KOJK Provinsi Kalimantan Timur",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Pergadaian KOJK Provinsi Kalimantan Timur"
+  },
+  "S3PLUT": {
+    "nama": "Perusahaan Penyelenggara Layanan Pinjam Meminjam Uang Berbasis Teknologi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Perusahaan Penyelenggara Layanan Pinjam Meminjam Uang Berbasis Teknologi"
+  },
+  "S3TPRA": {
+    "nama": "Badan Pengelola Perumahan Tabungan Rakyat",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Jasa Keuangan Lainnya",
+    "sub_sub_sektor": "Badan Pengelola Perumahan Tabungan Rakyat"
+  },
+  "S2FTCH": {
+    "nama": "Financial Technology (FinTech)",
+    "sektor": "IKNB",
+    "sub_sektor": "Financial Technology (FinTech)",
+    "sub_sub_sektor": ""
+  },
+  "S3FTCK": {
+    "nama": "Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Financial Technology (FinTech)",
+    "sub_sub_sektor": "Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi Konvensional"
+  },
+  "S3FTCS": {
+    "nama": "Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Financial Technology (FinTech)",
+    "sub_sub_sektor": "Layanan Pinjam Meminjam Uang Berbasis Teknologi Informasi Syariah"
+  },
+  "S3KPFS": {
+    "nama": "Koperasi Financial Technology Syariah",
+    "sektor": "IKNB",
+    "sub_sektor": "Financial Technology (FinTech)",
+    "sub_sub_sektor": "Koperasi Financial Technology Syariah"
+  },
+  "S3KPFK": {
+    "nama": "Koperasi Financial Technology Konvensional",
+    "sektor": "IKNB",
+    "sub_sektor": "Financial Technology (FinTech)",
+    "sub_sub_sektor": "Koperasi Financial Technology Konvensional"
+  },
+  "S2LKMM": {
+    "nama": "Lembaga Keuangan Mikro",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": ""
+  },
+  "S3LKMK": {
+    "nama": "LKM Konvensional - Tunai",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "LKM Konvensional - Tunai"
+  },
+  "S3LKMS": {
+    "nama": "LKM Syariah - Tunai",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "LKM Syariah - Tunai"
+  },
+  "S3LKMB": {
+    "nama": "Bank Wakaf Mikro (BWM)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "Bank Wakaf Mikro (BWM)"
+  },
+  "S3KMKN": {
+    "nama": "LKM Konvensional - Non Tunai",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "LKM Konvensional - Non Tunai"
+  },
+  "S3KMSN": {
+    "nama": "LKM Syariah - Non Tunai",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "LKM Syariah - Non Tunai"
+  },
+  "S3BYPH": {
+    "nama": "LKM Bersyarat ke Penuh",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Keuangan Mikro",
+    "sub_sub_sektor": "LKM Bersyarat ke Penuh"
+  },
+  "S2LPIK": {
+    "nama": "Lembaga Penunjang IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": ""
+  },
+  "S3PLGA": {
+    "nama": "Perusahaan Pialang Asuransi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Perusahaan Pialang Asuransi"
+  },
+  "S3PLGR": {
+    "nama": "Perusahaan Pialang Reasuransi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Perusahaan Pialang Reasuransi"
+  },
+  "S3PRGA": {
+    "nama": "Perusahaan Penilai Kerugian Asuransi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Perusahaan Penilai Kerugian Asuransi"
+  },
+  "S3PGNA": {
+    "nama": "Perusahaan Agen Asurani",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Perusahaan Agen Asurani"
+  },
+  "S3BKPJ": {
+    "nama": "Broker Penjaminan/Broker Penjaminan Ulang",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Broker Penjaminan/Broker Penjaminan Ulang"
+  },
+  "S3MUKK": {
+    "nama": "Pemeringkat Usaha Mikro Kecil Menengah dan Koperasi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Pemeringkat Usaha Mikro Kecil Menengah dan Koperasi"
+  },
+  "S3LPKL": {
+    "nama": "Lembaga Penunjang IKNB Lainnya",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Lembaga Penunjang IKNB Lainnya"
+  },
+  "S3LAKT": {
+    "nama": "Perusahaan Konsultan Aktuaria",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Perusahaan Konsultan Aktuaria"
+  },
+  "S3LNLI": {
+    "nama": "Kantor Jasa Penilai Publik",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Kantor Jasa Penilai Publik"
+  },
+  "S3LHKM": {
+    "nama": "Kantor Konsultan Hukum",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Kantor Konsultan Hukum"
+  },
+  "S3PKAP": {
+    "nama": "Kantor Akuntan Publik (KAP)",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Kantor Akuntan Publik (KAP)"
+  },
+  "S3TRIS": {
+    "nama": "Kantor Notaris",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Kantor Notaris"
+  },
+  "S3APBH": {
+    "nama": "Agen Penjamin Yang Berbentuk Badan Hukum",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Agen Penjamin Yang Berbentuk Badan Hukum"
+  },
+  "S3APOR": {
+    "nama": "Agen Penjamin Yang Berbentuk Orang Perseorangan",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Agen Penjamin Yang Berbentuk Orang Perseorangan"
+  },
+  "S3PUMK": {
+    "nama": "Pemeringkat Usaha Mikro, Kecil, Menegah, dan Koperasi",
+    "sektor": "IKNB",
+    "sub_sektor": "Lembaga Penunjang IKNB",
+    "sub_sub_sektor": "Pemeringkat Usaha Mikro, Kecil, Menegah, dan Koperasi"
+  },
+  "S2PFJP": {
+    "nama": "Profesi/Jasa Penunjang IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": ""
+  },
+  "S3PKHK": {
+    "nama": "Konsultan Hukum",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Konsultan Hukum"
+  },
+  "S3PAKP": {
+    "nama": "Akuntan Publik (AP)",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Akuntan Publik (AP)"
+  },
+  "S3PNLI": {
+    "nama": "Penilai",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Penilai"
+  },
+  "S3NTRS": {
+    "nama": "Notaris",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Notaris"
+  },
+  "S3KAKT": {
+    "nama": "Konsultan Aktuaria",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Konsultan Aktuaria"
+  },
+  "S3PFLN": {
+    "nama": "Profesi/Jasa Penunjang Lainnya",
+    "sektor": "IKNB",
+    "sub_sektor": "Profesi/Jasa Penunjang IKNB",
+    "sub_sub_sektor": "Profesi/Jasa Penunjang Lainnya"
+  },
+  "S2NKNB": {
+    "nama": "Non IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "Non IKNB",
+    "sub_sub_sektor": ""
+  },
+  "S3NKNB": {
+    "nama": "Non IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "Non IKNB",
+    "sub_sub_sektor": "Non IKNB"
+  },
+  "S2PKNB": {
+    "nama": "Perbankan-IKNB",
+    "sektor": "IKNB",
+    "sub_sektor": "Perbankan-IKNB",
+    "sub_sub_sektor": ""
+  },
+  "S3PKNB": {
+    "nama": "Kategori Perbankan (IKNB)",
+    "sektor": "IKNB",
+    "sub_sektor": "Perbankan-IKNB",
+    "sub_sub_sektor": "Kategori Perbankan (IKNB)"
+  },
+  "S1LLLL": {
+    "nama": "Lainnya",
+    "sektor": "Lainnya",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2IKDT": {
+    "nama": "Inovasi Keuangan Digital",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": ""
+  },
+  "S3ILKD": {
+    "nama": "Industri Inovasi Keuangan Digital",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Industri Inovasi Keuangan Digital"
+  },
+  "S3AGGR": {
+    "nama": "Aggregator",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Aggregator"
+  },
+  "S3BLCN": {
+    "nama": "Blockchain-Based",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Blockchain-Based"
+  },
+  "S3FNPL": {
+    "nama": "Financial Planner",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Financial Planner"
+  },
+  "S3CLSH": {
+    "nama": "Claim Service Handling",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Claim Service Handling"
+  },
+  "S3PJFN": {
+    "nama": "Project Financing",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Project Financing"
+  },
+  "S3CRSC": {
+    "nama": "Credit Scoring",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Credit Scoring"
+  },
+  "S3DGDR": {
+    "nama": "Digital DIRE",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Digital DIRE"
+  },
+  "S3FUAG": {
+    "nama": "Funding Agent",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Funding Agent"
+  },
+  "S3ONDS": {
+    "nama": "Online Distress Solution",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Online Distress Solution"
+  },
+  "S3FNAG": {
+    "nama": "Financing Agent",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Financing Agent"
+  },
+  "S3ONGD": {
+    "nama": "Online Gold Depository",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Online Gold Depository"
+  },
+  "S3SNRA": {
+    "nama": "Social Network and Robo Advisor",
+    "sektor": "Lainnya",
+    "sub_sektor": "Inovasi Keuangan Digital",
+    "sub_sub_sektor": "Social Network and Robo Advisor"
+  },
+  "S2NLJK": {
+    "nama": "Non Lembaga Jasa Keuangan",
+    "sektor": "Lainnya",
+    "sub_sektor": "Non Lembaga Jasa Keuangan",
+    "sub_sub_sektor": ""
+  },
+  "S3LLLL": {
+    "nama": "Lainnya-lainnya",
+    "sektor": "Lainnya",
+    "sub_sektor": "Non Lembaga Jasa Keuangan",
+    "sub_sub_sektor": "Lainnya-lainnya"
+  },
+  "S1WPUN": {
+    "nama": "Wanprestasi & PUPN",
+    "sektor": "Wanprestasi & PUPN",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2WNPR": {
+    "nama": "Wanprestasi",
+    "sektor": "Wanprestasi & PUPN",
+    "sub_sektor": "Wanprestasi",
+    "sub_sub_sektor": ""
+  },
+  "S2PUPN": {
+    "nama": "PUPN",
+    "sektor": "Wanprestasi & PUPN",
+    "sub_sektor": "PUPN",
+    "sub_sub_sektor": ""
+  },
+  "S1PEPK": {
+    "nama": "PEPK",
+    "sektor": "PEPK",
+    "sub_sektor": "",
+    "sub_sub_sektor": ""
+  },
+  "S2LAPS": {
+    "nama": "LAPS",
+    "sektor": "PEPK",
+    "sub_sektor": "LAPS",
+    "sub_sub_sektor": ""
+  }
+}

@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manajemen Surat Sanksi OJK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- docx-preview dependencies -->
+    <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
+    <script src="https://unpkg.com/docx-preview/dist/docx-preview.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Halaman 1: Dashboard -->
+        <main id="page-dashboard" class="page active">
+            <div class="dashboard-layout">
+                <!-- Sidebar -->
+                <aside id="dashboard-sidebar" class="dashboard-sidebar closed">
+                    <div class="sidebar-top">
+                        <h2 style="font-size: 1.1rem; color: var(--primary-color);">Menu</h2>
+                        <button id="btn-close-sidebar" class="btn btn-ghost btn-icon" title="Tutup Menu">✕</button>
+                    </div>
+                    <ul class="sidebar-nav">
+                        <li id="menu-dashboard"><span>Dashboard</span></li>
+                        <li><span>KYB</span></li>
+                        <li><span>SP</span></li>
+                        <li><span>Pemeriksaan</span></li>
+                        <li id="menu-manajemen-sanksi" class="active"><span>Manajemen Sanksi</span></li>
+                        <li><span>Konfigurasi Parameter Denda Administratif</span></li>
+                    </ul>
+                </aside>
+
+                <!-- Dashboard Content -->
+                <div class="dashboard-content-wrapper">
+                    <header class="glass-header">
+                        <div class="logo-area">
+                            <button id="btn-open-sidebar" class="btn btn-ghost btn-icon" title="Buka Menu" style="margin-right: 15px; display: inline-flex;">☰</button>
+                            <img src="logo_ojk.png" alt="OJK Logo" style="height: 40px;">
+                            <h1 id="header-title">Manajemen Sanksi</h1>
+                        </div>
+                        <button id="btn-create" class="btn btn-primary">
+                            <span class="icon">+</span> Buat Surat Sanksi
+                        </button>
+                    </header>
+
+            <div class="content-container" id="view-sip-dashboard" style="display: none; flex: 1; justify-content: center; align-items: center; flex-direction: column; min-height: 70vh;">
+                <h2 style="font-size: 3.5rem; text-align: center; color: var(--primary-color); margin-bottom: 0.5rem; line-height: 1.2;">Selamat Datang di SIP</h2>
+                <h3 style="font-size: 1.8rem; text-align: center; color: #64748b; font-weight: 400; margin-top: 0;">(Sistem Informasi Pengawasan)</h3>
+            </div>
+
+            <div class="content-container" id="view-manajemen-sanksi">
+                <div class="stats-grid">
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon" style="background: rgba(148, 163, 184, 0.2); color: #64748b;">📝</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Draft</span>
+                            <h2 class="stat-value" id="stat-draft">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon warning" style="background: rgba(245, 158, 11, 0.2); color: #d97706;">⏳</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Dalam Proses</span>
+                            <h2 class="stat-value" id="stat-pending">0</h2>
+                        </div>
+                    </div>
+                    <div class="stat-card glass-panel">
+                        <div class="stat-icon success" style="background: rgba(16, 185, 129, 0.2); color: #059669;">✅</div>
+                        <div class="stat-info">
+                            <span class="stat-label">Sudah Approve</span>
+                            <h2 class="stat-value" id="stat-selesai">0</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container glass-panel">
+                    <div class="table-header">
+                        <h2>Monitoring Pengenaan Sanksi</h2>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Pencarian">
+                        </div>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Tanggal</th>
+                                    <th>Nama PUJK</th>
+                                    <th>Sektor PUJK</th>
+                                    <th>Nama Laporan</th>
+                                    <th>Periode Laporan</th>
+                                    <th>Status Keterlambatan</th>
+                                    <th>Jenis Sanksi</th>
+                                    <th>Nominal Denda</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <!-- Diisi oleh JavaScript via JSON -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Halaman 2: Editor -->
+        <main id="page-editor" class="page">
+            <div class="split-layout">
+                <!-- Kolom Kiri: Form Input -->
+                <aside class="editor-sidebar glass-panel">
+                    <div class="sidebar-header">
+                        <button id="btn-back" class="btn btn-ghost">← Kembali ke Dashboard</button>
+                    </div>
+                    
+                    <div class="sidebar-content">
+                        <h2>List Dokumen Variabel</h2>
+                        <p class="subtitle">Isi form di bawah untuk membuat surat sanksi.</p>
+                        
+                        <form id="editor-form" class="dynamic-form">
+                            <div class="form-group" id="tipe-subjek-group" style="margin-bottom: 1.5rem;">
+                                <div class="radio-group" style="display: flex; gap: 20px;">
+                                    <label style="cursor: pointer;"><input type="radio" name="tipe-subjek" value="perusahaan" checked> Perusahaan</label>
+                                    <label style="cursor: pointer;"><input type="radio" name="tipe-subjek" value="individu"> Individu</label>
+                                </div>
+                            </div>
+
+                            <div class="tabs-header">
+                                <button type="button" id="tab-btn-profil" class="tab-btn active" data-target="tab-profil">Profil-Perusahaan</button>
+                                <button type="button" class="tab-btn" data-target="tab-dasar">Dasar Pengenaan Sanksi</button>
+                                <button type="button" class="tab-btn" data-target="tab-pelanggaran">Pelanggaran</button>
+                                <button type="button" class="tab-btn" data-target="tab-sanksi">Pengenaan Sanksi</button>
+                                <button type="button" class="tab-btn" data-target="tab-catatan">Keterangan Persetujuan</button>
+                            </div>
+                            <div class="tabs-content">
+                                <div id="tab-profil" class="tab-pane active">
+
+                                    <div id="section-perusahaan">
+                                        <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Profil - Perusahaan</h4>
+                                <div class="form-group">
+                                <label for="sandi-pujk-perusahaan">Sandi PUJK</label>
+                                <select id="sandi-pujk-perusahaan">
+                                    <option value="">-- Pilih Sandi PUJK --</option>
+                                    <option value="002" data-nama="Bank BRI" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">002</option>
+                                    <option value="008" data-nama="Bank Mandiri" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">008</option>
+                                    <option value="009" data-nama="Bank BNI" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">009</option>
+                                    <option value="013" data-nama="Bank Permata" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">013</option>
+                                    <option value="014" data-nama="Bank BCA" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">014</option>
+                                    <option value="147" data-nama="Bank Muamalat" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Syariah">147</option>
+                                    <option value="200" data-nama="Bank BTN" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">200</option>
+                                    <option value="451" data-nama="Bank Syariah Indonesia (BSI)" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Syariah">451</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama-perusahaan">Nama Perusahaan</label>
+                                <input type="text" id="nama-perusahaan" placeholder="Otomatis terisi dari Sandi PUJK" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis-identitas-perusahaan">Jenis Identitas</label>
+                                <select id="jenis-identitas-perusahaan">
+                                    <option value="NPWP">NPWP</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor-identitas-perusahaan">Nomor Identitas</label>
+                                <input type="text" id="nomor-identitas-perusahaan" placeholder="Terisi otomatis" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="email-perusahaan">E-mail</label>
+                                <input type="text" id="email-perusahaan" placeholder="Terisi otomatis" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="telepon-perusahaan">Nomor telepon</label>
+                                <input type="text" id="telepon-perusahaan" placeholder="Terisi otomatis" readonly style="background-color: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="sektor-pujk-perusahaan">Sektor PUJK</label>
+                                <input type="text" id="sektor-pujk-perusahaan" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-sektor-pujk-perusahaan">Sub Sektor PUJK</label>
+                                <input type="text" id="sub-sektor-pujk-perusahaan" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-sub-sektor-pujk-perusahaan">Sub Sub Sektor PUJK</label>
+                                <input type="text" id="sub-sub-sektor-pujk-perusahaan" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            </div>
+
+                            <div id="section-individu" style="display: none;">
+                                <h4 style="margin-bottom: 1rem; color: var(--primary-color);">Profil - Individu</h4>
+                                <div class="form-group">
+                                <label for="nama-individu">Nama Individu</label>
+                                <input type="text" id="nama-individu" placeholder="Masukkan nama individu">
+                            </div>
+                            <div class="form-group">
+                                <label for="kewarganegaraan">Kewarganegaraan</label>
+                                <select id="kewarganegaraan">
+                                    <option value="WNI">WNI</option>
+                                    <option value="WNA">WNA</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis-identitas-individu">Jenis Identitas</label>
+                                <select id="jenis-identitas-individu">
+                                    <option value="KTP">KTP</option>
+                                    <option value="Paspor/KITAS">Paspor/KITAS</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor-identitas-individu">Nomor Identitas</label>
+                                <input type="text" id="nomor-identitas-individu" placeholder="Masukkan nomor identitas">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal-lahir">Tanggal lahir</label>
+                                <input type="date" id="tanggal-lahir">
+                            </div>
+                            <div class="form-group">
+                                <label for="email-individu">E-mail</label>
+                                <input type="text" id="email-individu" placeholder="Masukkan e-mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="alamat-individu">Alamat</label>
+                                <input type="text" id="alamat-individu" placeholder="Masukkan alamat">
+                            </div>
+                            <div class="form-group">
+                                <label for="telepon-individu">Nomor Telepon</label>
+                                <input type="text" id="telepon-individu" placeholder="Masukkan nomor telepon">
+                            </div>
+                            <div class="form-group">
+                                <label for="jabatan">Jabatan</label>
+                                <input type="text" id="jabatan" placeholder="Masukkan jabatan">
+                            </div>
+                            <div class="form-group">
+                                <label for="sandi-pujk-individu">Sandi PUJK</label>
+                                <select id="sandi-pujk-individu">
+                                    <option value="">-- Pilih Sandi PUJK --</option>
+                                    <option value="002" data-nama="Bank BRI" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">002</option>
+                                    <option value="008" data-nama="Bank Mandiri" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">008</option>
+                                    <option value="009" data-nama="Bank BNI" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">009</option>
+                                    <option value="013" data-nama="Bank Permata" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">013</option>
+                                    <option value="014" data-nama="Bank BCA" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">014</option>
+                                    <option value="147" data-nama="Bank Muamalat" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Syariah">147</option>
+                                    <option value="200" data-nama="Bank BTN" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Konvensional">200</option>
+                                    <option value="451" data-nama="Bank Syariah Indonesia (BSI)" data-sektor="Perbankan" data-sub="Bank Umum" data-subsub="Bank Umum Syariah">451</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama-perusahaan-menjabat">Nama Perusahaan Menjabat</label>
+                                <input type="text" id="nama-perusahaan-menjabat" placeholder="Otomatis terisi dari Sandi PUJK" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="npwp-perusahaan-menjabat">Nomor NPWP Perusahaan</label>
+                                <input type="text" id="npwp-perusahaan-menjabat" placeholder="Masukkan nomor NPWP">
+                            </div>
+                            <div class="form-group">
+                                <label for="sektor-pujk-individu">Sektor PUJK</label>
+                                <input type="text" id="sektor-pujk-individu" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-sektor-pujk-individu">Sub Sektor PUJK</label>
+                                <input type="text" id="sub-sektor-pujk-individu" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-sub-sektor-pujk-individu">Sub Sub Sektor PUJK</label>
+                                <input type="text" id="sub-sub-sektor-pujk-individu" readonly style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+                            </div>
+                                </div>
+                                <div id="tab-dasar" class="tab-pane">
+                            <div class="form-group">
+                                <label for="kode-laporan">Kode Laporan</label>
+                                <select id="kode-laporan">
+                                    <option value="">-- Pilih Kode Laporan --</option>
+                                    <option value="LAP-001">LAP-001</option>
+                                    <option value="LAP-002">LAP-002</option>
+                                    <option value="LAP-003">LAP-003</option>
+                                    <option value="LAP-004">LAP-004</option>
+                                    <option value="LAP-005">LAP-005</option>
+                                    <option value="LAP-006">LAP-006</option>
+                                    <option value="LAP-007">LAP-007</option>
+                                    <option value="LAP-008">LAP-008</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nama-laporan">Nama Laporan</label>
+                                <input type="text" id="nama-laporan" placeholder="Masukkan nama laporan">
+                            </div>
+                            <div class="form-group">
+                                <label for="periode-laporan">Periode Laporan</label>
+                                <input type="month" id="periode-laporan">
+                            </div>
+                            <div class="form-group">
+                                <label for="sumber-aplikasi">Sumber Aplikasi</label>
+                                <input type="text" id="sumber-aplikasi" placeholder="Masukkan sumber aplikasi">
+                            </div>
+                            <div class="form-group" id="status-keterlambatan-group">
+                                <label for="status-keterlambatan">Status Keterlambatan</label>
+                                <select id="status-keterlambatan">
+                                    <option value="">-- Pilih Status --</option>
+                                    <option value="Keterlambatan">Keterlambatan</option>
+                                    <option value="Tidak Menyampaikan">Tidak Menyampaikan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal-lapor">Tanggal Lapor</label>
+                                <input type="date" id="tanggal-lapor">
+                            </div>
+                            <div class="form-group">
+                                <label for="tanggal-batas-pelaporan">Tanggal Batas Pelaporan</label>
+                                <input type="date" id="tanggal-batas-pelaporan">
+                            </div>
+                            <div class="form-group">
+                                <label for="jumlah-hari-keterlambatan">Jumlah Hari Keterlambatan</label>
+                                <input type="number" id="jumlah-hari-keterlambatan" readonly style="background: #e9ecef; cursor: not-allowed;" placeholder="0">
+                            </div>
+                            <div class="form-group">
+                                <label>Tanda Bukti Lapor</label>
+                                <a href="data:application/pdf;base64,JVBERi0xLg==" download="Tanda_Bukti_Lapor.pdf" class="btn btn-secondary" style="display: inline-block; text-align: center; text-decoration: none;">⬇ Unduh Tanda Bukti Lapor</a>
+                            </div>
+
+                            <div id="pengawas-fields-container" style="display: none; column-span: all; margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed var(--border-color);">
+                                <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                                    <h4 style="color: var(--primary-color); margin: 0;">Data Pengawas</h4>
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <input type="checkbox" id="checkbox-sesuai-sistem" checked> Sesuai Rekomendasi Sistem
+                                    </label>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                    <div class="form-group">
+                                        <label for="status-keterlambatan-pengawas">Status Keterlambatan (Pengawas)</label>
+                                        <select id="status-keterlambatan-pengawas">
+                                            <option value="">-- Pilih Status --</option>
+                                            <option value="Keterlambatan">Keterlambatan</option>
+                                            <option value="Tidak Menyampaikan">Tidak Menyampaikan</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tanggal-lapor-pengawas">Tanggal Lapor (Pengawas)</label>
+                                        <input type="date" id="tanggal-lapor-pengawas">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tanggal-batas-pelaporan-pengawas">Tanggal Batas Pelaporan (Pengawas)</label>
+                                        <input type="date" id="tanggal-batas-pelaporan-pengawas">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="jumlah-hari-keterlambatan-pengawas">Jumlah Hari Keterlambatan (Pengawas)</label>
+                                        <input type="number" id="jumlah-hari-keterlambatan-pengawas" readonly style="background: #e9ecef; cursor: not-allowed;" placeholder="0">
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                                <div id="tab-pelanggaran" class="tab-pane">
+                            <div class="form-group">
+                                <label for="jenis-pelanggaran">Jenis Pelanggaran</label>
+                                <select id="jenis-pelanggaran">
+                                    <option value="">-- Pilih Jenis Pelanggaran --</option>
+                                    <option value="APU-PPT">APU-PPT</option>
+                                    <option value="Prudential">Prudential</option>
+                                    <option value="Market Conduct">Market Conduct</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-jenis-pelanggaran">Sub Jenis Pelanggaran</label>
+                                <select id="sub-jenis-pelanggaran">
+                                    <option value="">-- Pilih Sub Jenis Pelanggaran --</option>
+                                    <option value="Kewajiban Pelaporan">Kewajiban Pelaporan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sub-sub-jenis-pelanggaran">Sub Sub Jenis Pelanggaran</label>
+                                <select id="sub-sub-jenis-pelanggaran">
+                                    <option value="">-- Pilih Sub Sub Jenis Pelanggaran --</option>
+                                    <option value="Keterlambatan">Keterlambatan</option>
+                                    <option value="Tidak Menyampaikan">Tidak Menyampaikan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="jenis-peraturan">Jenis Peraturan</label>
+                                <select id="jenis-peraturan">
+                                    <option value="Undang Undang">Undang Undang</option>
+                                    <option value="POJK">POJK</option>
+                                    <option value="Peraturan Regulator Lainnya">Peraturan Regulator Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nomor-peraturan">Nomor Peraturan</label>
+                                <input type="text" id="nomor-peraturan" placeholder="Masukkan nomor peraturan">
+                            </div>
+                            <div class="form-group">
+                                <label for="pasal-pelanggaran">Pasal Pelanggaran</label>
+                                <input type="text" id="pasal-pelanggaran" placeholder="Masukkan pasal pelanggaran">
+                            </div>
+                            <div class="form-group">
+                                <label for="deskripsi-pelanggaran">Catatan Atas Pelanggaran</label>
+                                <textarea id="deskripsi-pelanggaran" placeholder="Masukkan catatan atas pelanggaran" rows="4"></textarea>
+                            </div>
+                                </div>
+                                <div id="tab-sanksi" class="tab-pane">
+                            <div class="form-group">
+                                <label for="jenis-sanksi">Jenis Sanksi</label>
+                                <select id="jenis-sanksi">
+                                    <option value="">-- Pilih Jenis Sanksi --</option>
+                                    <option value="Sanksi denda - Denda">Sanksi denda - Denda</option>
+                                    <option value="Sanksi denda - Denda yaitu kewajiban untuk membayar sejumlah uang tertentu">Sanksi denda - Denda yaitu kewajiban untuk membayar sejumlah uang tertentu</option>
+                                    <option value="Sanksi denda - Denda administratif">Sanksi denda - Denda administratif</option>
+                                    <option value="Sanksi peringatan dan teguran - Peringatan tertulis">Sanksi peringatan dan teguran - Peringatan tertulis</option>
+                                    <option value="Sanksi peringatan dan teguran - Teguran tertulis">Sanksi peringatan dan teguran - Teguran tertulis</option>
+                                    <option value="Tidak dikenakan sanksi">Tidak dikenakan sanksi</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="nominal-denda">Nominal Denda</label>
+                                <input type="text" id="nominal-denda" placeholder="Masukkan nominal denda" disabled style="background: #e9ecef; cursor: not-allowed;">
+                            </div>
+
+                            <div class="form-group" id="preview-surat-container">
+                                <label>Pratinjau</label>
+                                <button type="button" id="btn-review-form" class="btn btn-secondary" style="display: inline-block; text-align: center; text-decoration: none;">📄 Preview Surat</button>
+                            </div>
+
+                            <div id="pengawas-sanksi-container" style="display: none; column-span: all; margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed var(--border-color);">
+                                <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                                    <h4 style="color: var(--primary-color); margin: 0;">Data Pengawas</h4>
+                                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: var(--text-secondary); font-size: 0.9rem;">
+                                        <input type="checkbox" id="checkbox-sesuai-sistem-sanksi" checked> Sesuai Rekomendasi Sistem
+                                    </label>
+                                </div>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                                    <div class="form-group">
+                                        <label for="jenis-sanksi-pengawas">Jenis Sanksi (Pengawas)</label>
+                                        <select id="jenis-sanksi-pengawas">
+                                            <option value="">-- Pilih Jenis Sanksi --</option>
+                                            <option value="Sanksi denda - Denda">Sanksi denda - Denda</option>
+                                            <option value="Sanksi denda - Denda yaitu kewajiban untuk membayar sejumlah uang tertentu">Sanksi denda - Denda yaitu kewajiban untuk membayar sejumlah uang tertentu</option>
+                                            <option value="Sanksi denda - Denda administratif">Sanksi denda - Denda administratif</option>
+                                            <option value="Sanksi peringatan dan teguran - Peringatan tertulis">Sanksi peringatan dan teguran - Peringatan tertulis</option>
+                                            <option value="Sanksi peringatan dan teguran - Teguran tertulis">Sanksi peringatan dan teguran - Teguran tertulis</option>
+                                            <option value="Tidak dikenakan sanksi">Tidak dikenakan sanksi</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="nominal-denda-pengawas">Nominal Denda (Pengawas)</label>
+                                        <input type="text" id="nominal-denda-pengawas" placeholder="Masukkan nominal denda" disabled style="background: #e9ecef; cursor: not-allowed;">
+                                    </div>
+                                    <div class="form-group" style="grid-column: 1 / -1;">
+                                        <label for="catatan-sanksi-pengawas">Catatan Pengenaan Sanksi</label>
+                                        <textarea id="catatan-sanksi-pengawas" placeholder="Masukkan catatan pengenaan sanksi" rows="3" disabled style="background: #e9ecef; cursor: not-allowed;"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                                </div>
+                                <div id="tab-catatan" class="tab-pane">
+                            <div class="form-group">
+                                <label for="role-pengawas">Role</label>
+                                <input type="text" id="role-pengawas" readonly style="background: #e9ecef; cursor: not-allowed;" value="Drafter">
+                            </div>
+                            <div class="form-group">
+                                <label for="catatan-pengawas">Catatan</label>
+                                <textarea id="catatan-pengawas" placeholder="Masukkan catatan" rows="4"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="lampiran-pengawas">Lampiran</label>
+                                <input type="file" id="lampiran-pengawas" style="background: white;">
+                            </div>
+                            <div class="form-group">
+                                <label>Keterangan Persetujuan</label>
+                                <button type="button" id="btn-riwayat" class="btn btn-secondary">Lihat Riwayat Persetujuan</button>
+                            </div>
+
+                            <div class="form-actions" style="display: flex; gap: 10px; flex-wrap: wrap; grid-column: 1 / -1; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e2e8f0);">
+                                <button type="button" id="btn-draft-form" class="btn btn-secondary" style="flex: 1;">Simpan</button>
+                                <button type="button" id="btn-kirim-form" class="btn btn-primary" style="flex: 1;">Kirim</button>
+                            </div>
+                                </div>
+                            </div> <!-- End tabs-content -->
+
+                        </form>
+                    </div>
+                </aside>
+
+                <!-- Kolom Kanan: Live Document Preview -->
+                <section class="editor-preview" style="display: none;">
+                    <div class="preview-toolbar glass-panel">
+                        <div class="toolbar-title">Live Document Preview</div>
+                        <div class="toolbar-actions">
+                        </div>
+                    </div>
+                    
+                    <div class="paper-container">
+                        <div class="a4-paper" id="a4-document" style="font-family: 'Times New Roman', Times, serif; font-size: 12pt;">
+                            <img src="logo_ojk.png" alt="OJK Logo" style="width: 149px; height: 65px; margin-bottom: 20px;" width="149" height="65" id="doc-logo">
+                            
+                            <div class="doc-header">
+                                <div class="doc-meta">
+                                    <div class="meta-row">
+                                        <span class="meta-label">Nomor</span>
+                                        <span class="meta-sep">:</span>
+                                        <span class="meta-val" id="prev-nomor"></span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-label">Sifat</span>
+                                        <span class="meta-sep">:</span>
+                                        <span class="meta-val">Segera</span>
+                                    </div>
+                                    <div class="meta-row">
+                                        <span class="meta-label">Hal</span>
+                                        <span class="meta-sep">:</span>
+                                        <span class="meta-val">Surat Sanksi keterlambatan</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <div class="doc-recipient">
+                                <p>Yth. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="prev-nama">___________________________</span></p>
+                                <p style="padding-left: 3rem;" id="prev-alamat">___________________________<br>___________________________</p>
+                            </div>
+
+                            <br>
+
+                            <div class="doc-body" style="font-family: 'Times New Roman', Times, serif; font-size: 12pt; text-align: justify; line-height: 1.5;">
+                                <p>Berdasarkan hasil pengawasan Otoritas Jasa Keuangan, ditemukan bahwa Saudara selaku <span id="prev-selaku">__________________</span> telah melakukan pelanggaran berupa <span id="prev-sanksi">__________________</span>.</p>
+                                <br>
+                                <p>Sesuai dengan peraturan perundang-undangan yang berlaku di bidang Pasar Modal, atas pelanggaran tersebut kami menetapkan <strong id="prev-jenisdenda">Denda Administratif</strong> kepada Saudara dengan kewajiban membayar sejumlah:</p>
+                                <br>
+                                <p style="text-align: center; font-weight: bold; font-size: 14pt;" id="prev-jumlah">Rp 1.000.000</p>
+                                <br>
+                                <p id="prev-deskripsi" style="margin-bottom: 1rem;"></p>
+                                <p>Pembayaran denda tersebut agar disetorkan ke Kas Negara selambat-lambatnya 30 (tiga puluh) hari sejak surat ini diterima. Apabila Saudara tidak melakukan pembayaran sampai dengan batas waktu yang ditentukan, OJK dapat mengenakan sanksi lanjutan.</p>
+                            </div>
+
+                            <br><br>
+
+                            <div class="doc-footer" style="text-align: right; font-family: 'Times New Roman', Times, serif; font-size: 12pt; display: flex; flex-direction: column; align-items: flex-end;">
+                                <p>Atas perhatian dan kerjasama Saudara, kami ucapkan terima kasih.</p>
+                                <br><br>
+                                <p id="prev-date">Jakarta, _______________</p>
+                                <p>Deputi Komisioner Pengawas Pasar Modal</p>
+                                <img id="prev-ttd" src="" alt="Tanda Tangan" style="max-height: 80px; margin: 10px 0; display: none;">
+                                <div style="height: 60px;" id="prev-ttd-spacer"></div>
+                                <p><strong>_____________________</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <!-- Modal Riwayat Persetujuan -->
+    <div id="modal-riwayat" class="modal-overlay" style="z-index: 9999; display: none;">
+        <div class="modal-box glass-panel" style="width: 90%; max-width: 800px; max-height: 80vh; display: flex; flex-direction: column;">
+            <div class="modal-header">
+                <h3>Riwayat Persetujuan</h3>
+                <button class="modal-close btn btn-ghost" id="btn-modal-riwayat-close">✕</button>
+            </div>
+            <div id="riwayat-container" style="flex: 1; overflow-y: auto; padding: 20px;">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Tanggal</th>
+                            <th>Status Konseptor</th>
+                            <th>Catatan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="riwayat-table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pop-up Kirim -->
+    <div id="modal-kirim" class="modal-overlay">
+        <div class="modal-box glass-panel">
+            <div class="modal-header">
+                <h3>Kirim Surat Sanksi</h3>
+                <button class="modal-close btn btn-ghost" id="btn-modal-close">✕</button>
+            </div>
+            <p class="modal-desc">Pilih jenis pengiriman dokumen ini:</p>
+
+            <!-- Step 1: Pilih jenis -->
+            <div id="modal-step-1" class="modal-step">
+                <div class="modal-action-grid">
+                    <button id="btn-pilih-verifikasi" class="modal-action-btn">
+                        <span class="modal-action-icon">🔍</span>
+                        <span class="modal-action-label">Verifikasi</span>
+                        <span class="modal-action-sub">1 orang verifikator</span>
+                    </button>
+                    <button id="btn-pilih-approval" class="modal-action-btn">
+                        <span class="modal-action-icon">✅</span>
+                        <span class="modal-action-label">Approval</span>
+                        <span class="modal-action-sub">1 orang approver</span>
+                    </button>
+                    <button type="button" id="btn-kembalikan-drafter" class="modal-action-btn" style="grid-column: 1 / -1; border-color: #dc3545; background: #fff5f5;">
+                        <span class="modal-action-icon" style="color: #dc3545;">↩️</span>
+                        <span class="modal-action-label" style="color: #dc3545;">Kembalikan ke Drafter</span>
+                        <span class="modal-action-sub">Kembali ke status Draft</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2A: Approval (1 dropdown) -->
+            <div id="modal-step-approval" class="modal-step" style="display:none;">
+                <button class="btn btn-ghost modal-back" id="btn-back-approval">← Kembali</button>
+                <h4 class="modal-step-title">Pilih Approver</h4>
+                <div class="form-group">
+                    <label>Approver <span class="required-star">*</span></label>
+                    <div class="combobox-wrapper">
+                        <input type="text" id="dropdown-approval-1" class="combobox-input" placeholder="Ketik atau pilih nama..." autocomplete="off">
+                        <span class="combobox-arrow">▾</span>
+                        <div class="combobox-dropdown" id="list-approval-1">
+                            <div class="combobox-option">Adit</div>
+                            <div class="combobox-option">Hendra</div>
+                            <div class="combobox-option">Riu</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-submit-approval" class="btn btn-primary modal-submit-btn">Kirim ke Approver</button>
+            </div>
+
+            <!-- Step 2B: Verifikasi (1 dropdown) -->
+            <div id="modal-step-verifikasi" class="modal-step" style="display:none;">
+                <button class="btn btn-ghost modal-back" id="btn-back-verifikasi">← Kembali</button>
+                <h4 class="modal-step-title">Pilih Verifikator</h4>
+                <div class="form-group">
+                    <label>Verifikator <span class="required-star">*</span></label>
+                    <div class="combobox-wrapper">
+                        <input type="text" id="dropdown-verif-1" class="combobox-input" placeholder="Ketik atau pilih nama..." autocomplete="off">
+                        <span class="combobox-arrow">▾</span>
+                        <div class="combobox-dropdown" id="list-verif-1">
+                            <div class="combobox-option">Adit</div>
+                            <div class="combobox-option">Hendra</div>
+                            <div class="combobox-option">Riu</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="btn-submit-verifikasi" class="btn btn-primary modal-submit-btn">Kirim ke Verifikator</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Pop-up Document Preview -->
+    <div id="modal-preview-doc" class="modal-overlay" style="z-index: 9999; display: none;">
+        <div class="modal-box glass-panel" style="width: 90%; max-width: 1000px; height: 90vh; display: flex; flex-direction: column;">
+            <div class="modal-header">
+                <h3>Preview Surat Sanksi</h3>
+                <button class="modal-close btn btn-ghost" id="btn-modal-preview-close">✕</button>
+            </div>
+            <div id="docx-container" style="flex: 1; overflow-y: auto; background-color: #f3f4f6; padding: 20px; border-radius: 8px;">
+                <!-- docx-preview will render here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
