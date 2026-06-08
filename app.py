@@ -1,20 +1,50 @@
-from flask import Flask, send_from_directory
+from flask import Flask, send_from_directory, request, send_file, session, jsonify
 import os
+import secrets
 import webbrowser
 from threading import Timer
 import io
-from flask import request, send_file
 import docx
 from python_docx_replace.paragraph import Paragraph
 
 app = Flask(__name__, static_url_path='', static_folder='.')
+app.secret_key = os.environ.get('SANKSI_SECRET_KEY') or secrets.token_hex(32)
+
+PASSPHRASE = os.environ.get('SANKSI_PASSPHRASE', 'ojk$26#!')
+
+
+def is_authenticated():
+    return session.get('authenticated') is True
+
+
+@app.route('/verify-passphrase', methods=['POST'])
+def verify_passphrase():
+    data = request.json or {}
+    candidate = data.get('passphrase', '')
+    if secrets.compare_digest(candidate, PASSPHRASE):
+        session['authenticated'] = True
+        return jsonify({'status': 'ok'})
+    return jsonify({'status': 'unauthorized'}), 401
+
+
+@app.route('/logout', methods=['POST'])
+def logout():
+    session.clear()
+    return jsonify({'status': 'ok'})
 
 @app.route('/')
 def root():
     return send_from_directory('.', 'index.html')
 
+
+@app.route('/check-auth')
+def check_auth():
+    return jsonify({'authenticated': is_authenticated()})
+
 @app.route('/generate-surat', methods=['POST'])
 def generate_surat():
+    if not is_authenticated():
+        return jsonify({'error': 'Unauthorized'}), 401
     data = request.json
     tipe_subjek = data.get('tipeSubjek', 'perusahaan')
     
@@ -46,6 +76,8 @@ def generate_surat():
 import json
 @app.route('/add-riwayat', methods=['POST'])
 def add_riwayat():
+    if not is_authenticated():
+        return jsonify({'error': 'Unauthorized'}), 401
     data = request.json
     try:
         with open('riwayat.json', 'r') as f:

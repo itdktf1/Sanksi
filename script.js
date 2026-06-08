@@ -1,4 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Auth
+    const loginOverlay = document.getElementById('login-overlay');
+    const loginForm = document.getElementById('login-form');
+    const passphraseInput = document.getElementById('passphrase-input');
+    const loginError = document.getElementById('login-error');
+    const appDiv = document.getElementById('app');
+
+    async function checkAuth() {
+        const res = await fetch('/check-auth');
+        const data = await res.json();
+        if (data.authenticated) {
+            loginOverlay.classList.add('hidden');
+            appDiv.style.display = '';
+        } else {
+            loginOverlay.classList.remove('hidden');
+            appDiv.style.display = 'none';
+            passphraseInput.focus();
+        }
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        loginError.style.display = 'none';
+        const res = await fetch('/verify-passphrase', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ passphrase: passphraseInput.value })
+        });
+        if (res.ok) {
+            passphraseInput.value = '';
+            loginOverlay.classList.add('hidden');
+            appDiv.style.display = '';
+        } else {
+            loginError.style.display = 'block';
+            passphraseInput.value = '';
+            passphraseInput.focus();
+        }
+    });
+
+    checkAuth();
+
     // DOM Elements
     const pageDashboard = document.getElementById('page-dashboard');
     const pageEditor = document.getElementById('page-editor');

@@ -11,7 +11,23 @@
     <script src="https://unpkg.com/docx-preview/dist/docx-preview.min.js"></script>
 </head>
 <body>
-    <div id="app">
+    <!-- Login Overlay -->
+    <div id="login-overlay">
+        <div class="login-card glass-panel">
+            <img src="logo_ojk.png" alt="OJK Logo" style="height: 56px; margin-bottom: 1.5rem;">
+            <h2 style="color: var(--primary-color); margin-bottom: 0.25rem;">Sistem Informasi Pengawasan</h2>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 2rem;">Masukkan passphrase untuk melanjutkan</p>
+            <form id="login-form" autocomplete="off">
+                <div class="login-input-group">
+                    <input type="password" id="passphrase-input" placeholder="Passphrase" autocomplete="off" required>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.75rem;">Masuk</button>
+                </div>
+                <p id="login-error" style="color: var(--danger); font-size: 0.85rem; margin-top: 0.75rem; display: none;">Passphrase salah. Coba lagi.</p>
+            </form>
+        </div>
+    </div>
+
+    <div id="app" style="display: none;">
         <!-- Halaman 1: Dashboard -->
         <main id="page-dashboard" class="page active">
             <div class="dashboard-layout">
