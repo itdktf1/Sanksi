@@ -1,0 +1,32 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+
+# IDE / Editor folders
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary Office Files (Excel, Word locks)
+~$*.xlsx
+~$*.docx
+~$*.doc
+
+# Log files
+*.log
+
+# (Optional) Jika Anda tidak ingin file data.json di-track oleh git, uncomment baris di bawah:
+# data.json
+# riwayat.json
