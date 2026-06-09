@@ -40,7 +40,7 @@ def update_laporan():
         laporan_data[kode] = {
             "Nama Laporan": str(row.get('Nama Laporan', '')).strip() if pd.notna(row.get('Nama Laporan')) else "",
             "Periode Laporan": str(row.get('Periode Laporan', '')).strip() if pd.notna(row.get('Periode Laporan')) else "",
-            "Sumber Aplikasi": str(row.get('Sumber Aplikasi', '')).strip() if pd.notna(row.get('Sumber Aplikasi')) else "",
+            "Sumber Aplikasi": (str(row.get('Sumber Aplikasi', '')).strip() if pd.notna(row.get('Sumber Aplikasi')) else "").replace('Apollo', 'APOLO'),
             "Tanggal Batas Pelaporan": tgl_batas,
             "Tanggal Lapor": tgl_lapor,
             "Jumlah Hari Keterlambatan": int(row.get('Jumlah Hari Keterlambatan', 0)) if pd.notna(row.get('Jumlah Hari Keterlambatan')) else 0,

@@ -1,0 +1,43 @@
+﻿function doCheckPwdComplexity(deflen, pwd) {
+    var hasError = false;
+    if (pwd.length < deflen) { $("#pass-length").removeClass('valid'); hasError = true; }
+    else $("#pass-length").addClass('valid');
+
+    if (pwd.match(/^(?=.*[0-9])(?=.*[a-zA-Z])([a-zA-Z0-9]+)/)) $('#pass-combination').addClass('valid');
+    else { $('#pass-combination').removeClass('valid'); hasError = true; };
+
+    if (pwd.match(/[A-Z]/)) $('#pass-capital').addClass('valid');
+    else { $('#pass-capital').removeClass('valid'); hasError = true; };
+
+    if (pwd.match(/[@!#\$\^%&*()+=\-\[\]\\\';,\.\/\{\}\|\":<>\? ]/)) $('#pass-special').addClass('valid');
+    else { $('#pass-special').removeClass('valid'); hasError = true };
+
+    return hasError;
+}
+
+jQuery.validator.addMethod("validDate", function (date, element) {
+    //return this.optional(element) || date.match(/^\d{4}-((0\d)|(1[012]))-(([012]\d)|3[01])$/);
+    return this.optional(element) || date.match(/^(([0-9])|([0-2][0-9])|([3][0-1]))\-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\-\d{4}$/);
+});
+
+jQuery.validator.addMethod("validDateCustom", function (date, element) {
+    //return this.optional(element) || date.match(/^\d{4}-((0\d)|(1[012]))-(([012]\d)|3[01])$/);
+    return this.optional(element) || date.match(/^(([0-9])|([0-2][0-9])|([3][0-1]))\-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\-\d{4}$/);
+});
+
+
+jQuery.validator.addMethod("greaterThan",
+function (value, element, params) {
+    //alert(value);
+    //alert(params);
+
+    if (value != '') {      
+        if (!/Invalid|NaN/.test(new Date(value))) {                      
+            return new Date(value) >= new Date($(params).val());  ;
+        }
+
+        return isNaN(value) && isNaN($(params).val())
+            || (Number(value) >= Number($(params).val()));
+    }
+}, 'Tanggal Selesai harus lebih besar atau sama dengan Tanggal Mulai');
+

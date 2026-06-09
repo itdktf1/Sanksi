@@ -53,7 +53,7 @@ for idx, row in df_dummy.iterrows():
     kode = get_str(row, 'Kode Laporan')
     nama_lap = get_str(row, 'Nama Laporan')
     periode = get_str(row, 'Periode Laporan')
-    sumber = get_str(row, 'Sumber Aplikasi')
+    sumber = get_str(row, 'Sumber Aplikasi').replace('Apollo', 'APOLO')
     jns_pel = get_str(row, 'Jenis Pelanggaran')
     sub_pel = get_str(row, 'Sub Jenis Pelanggaran')
     sub_sub_pel = get_str(row, 'Sub Sub Jenis Pelanggaran')

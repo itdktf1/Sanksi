@@ -1,0 +1,345 @@
+﻿
+/**
+ * Entity Picker Function
+ */
+var sandiControlId, namaBankControlId;
+function setEntityPickerReceiver(sandiControlId, namaBankControlId) {
+    this.sandiControlId = sandiControlId;
+    this.namaBankControlId = namaBankControlId;
+}
+
+function openEntityPicker(sandiControlId, namaBankControlId) {
+    setEntityPickerReceiver(sandiControlId, namaBankControlId);
+    ePickerClearSearchForm();
+    ePickerGetEntityList();
+    $('#e-picker').modal('show');
+}
+
+var epPage, epMaxPage;
+
+function ePickerPrepareResultForm() {
+    //reset all previous state
+    $("#e-picker-tabelEntity tbody").empty();
+    $("#e-picker-loadingSpinner").remove();
+}
+
+function ePickerClearSearchForm() {
+    getSectorList("e-picker-sectorList");
+    $('#e-picker-keyword').val("");
+    epPage = 1;
+}
+
+function getSectorList(idSelect) {
+    var vIdSelect = idSelect.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    $.ajax({
+        url: '/GlobalParameter/getSectorList',
+        beforeSend: function (xhr) {
+            $('#' + vIdSelect).addClass("disabled");
+            $('#' + vIdSelect).empty();
+        }
+    }).done(function (data) {
+        var trHTML = '';
+        $.each(data, function (i, item) {
+            trHTML += '<option value="' + item.Value + '">' + item.Text + '</option>';
+        });
+        $('#' + vIdSelect).append(trHTML);
+    });
+}
+
+function ePickerGetEntityList(sector, keyword, index) {
+    ePickerPrepareResultForm();
+    //call ajax 
+    $.ajax({
+        url: '/GlobalParameter/getEntityList',
+        data: { 'sector': sector, 'keyword': keyword, 'index': index },
+        beforeSend: function (xhr) {
+            $("#e-picker-divEntityMainContainer").append("<div id='e-picker-loadingSpinner' class='sk-spinner sk-spinner-pulse'></div>");
+            $("#e-picker-tabelEntity").hide();
+        }
+    })
+    .done(function (data) {
+        epMaxPage = data.MaxPages;
+        var trHTML = '';
+        if (data.ResultList != null) {
+            $.each(data.ResultList, function (i, item) {
+                trHTML += '<tr>' +
+                              '<td><div><small>' + item.EntityName + '</div></small></td>' +
+                              '<td><small>' + item.EntityCode + '</small></td>' +
+                              '<td><small>' + item.SectorCode + '</small></td>' +
+                              '<td><input type="radio" name="e-picker-entityCode" value=' + item.EntityCode + '></td>' +
+                              '<td style="display:none">' + item.Address1 + '</td>' +
+                              '<td style="display:none">' + item.EntityId + '</td>'
+                '</tr>';
+            });
+           
+
+            //paging format
+            if (epPage >= epMaxPage) $('#e-picker-aNext').addClass("disabled");
+            else $('#e-picker-aNext').removeClass("disabled");
+
+            if (epPage == 1) $('#e-picker-aPrevious').addClass("disabled");
+            else $('#e-picker-aPrevious').removeClass("disabled");
+
+            $("#e-picker-pagerInfo").text("Page " + epPage + " of " + epMaxPage);
+        }
+        else {
+            trHTML += '<tr>' +
+                          '<td colspan="6"><div style="text-align:center"><small>data tidak ditemukan</div></small></td>' +
+                      '</tr>';
+            $('#e-picker-aPrevious').addClass("disabled")
+            $('#e-picker-aNext').addClass("disabled")
+            $("#e-picker-pagerInfo").text("Page 1 of 1");
+        }
+       
+        $('#e-picker-tabelEntity').append(trHTML);
+        $("#e-picker-loadingSpinner").remove();
+        $("#e-picker-tabelEntity").show();
+    });
+
+    return false;
+}
+
+function ePickerSearchEntity() {
+    var sector = $('#e-picker-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    var keyword = $('#e-picker-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    epPage = 1;
+    ePickerGetEntityList(sector, keyword, epPage);
+}
+
+function ePickerGetNextEntity() {
+    if (epPage < epMaxPage) {
+        var sector = $('#e-picker-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var keyword = $('#e-picker-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        epPage += 1;
+        ePickerGetEntityList(sector, keyword, epPage);
+    }
+}
+
+function ePickerGetPreviousEntity() {
+   
+    if (epPage > 1) {
+        var sector = $('#e-picker-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var keyword = $('#e-picker-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        epPage -= 1;
+        ePickerGetEntityList(sector, keyword, epPage);
+    }
+}
+
+function ePickerselectEntity() {
+    
+    $.each($("input[name='e-picker-entityCode']:checked"), function () {
+        var data = $(this).parents('tr:eq(0)');
+
+        $("#" + sandiControlId).val($(data).find('td:eq(1)').text());
+        $("#" + namaBankControlId).val($(data).find('td:eq(0)').text());
+        return false;
+    });
+
+    $('#e-picker').modal('hide');
+}
+/*---------------------------- Entity Picker ------------------------------------------*/
+
+/**
+ * Global Parameter Bank Function
+ */
+
+function openGlobalParamPicker() {    
+    gPickerClearSearchForm();
+    gPickerGetEntityList();
+    getTipeSPList('g-param-tipe-SP');
+    $('#g-param-change').modal('show');
+}
+
+var gpPage, gpMaxPage;
+
+function gPickerPrepareResultForm() {
+    //reset all previous state
+    $("#g-param-tabelEntity tbody").empty();
+    $("#g-param-loadingSpinner").remove();
+}
+
+function gPickerClearSearchForm() {
+    getSectorList("g-param-sectorList");
+    $('#g-param-keyword').val("");
+    gpPage = 1;
+}
+
+function gPickerGetEntityList(sector, keyword, index) {
+    gPickerPrepareResultForm();
+    //call ajax 
+    $.ajax({
+        url: '/GlobalParameter/GetRegisteredEntityInactiveIncluded',
+        data: { 'sector': sector, 'keyword': keyword, 'index': index },
+        beforeSend: function (xhr) {
+            $("#g-param-divEntityMainContainer").append("<div id='g-param-loadingSpinner' class='sk-spinner sk-spinner-pulse'></div>");
+            $("#g-param-tabelEntity").hide();
+        }
+    })
+    .done(function (data) {
+        gpMaxPage = data.MaxPages;
+
+        var trHTML = '';
+        if (data.ResultList.length != 0) {                      
+            $.each(data.ResultList, function (i, item) {
+                trHTML += '<tr>' +
+                              '<td><div><small>' + item.EntityName + '</div></small></td>' +
+                              '<td><small>' + item.EntityCode + '</small></td>' +
+                              '<td><small>' + item.SectorCode + '</small></td>' +
+                              '<td><small>' + item.CreatedBy + '</small></td>' +
+                              '<td><input type="radio" name="entityId" value=' + item.EntityId + '></td>' +
+                              '<td style="display:none">' + item.Address1 + '</td>' +
+                              '<td style="display:none">' + item.EntityId + '</td>'
+                '</tr>';
+            });           
+
+            //paging format
+            if (gpPage >= gpMaxPage) $('#g-param-aNext').addClass("disabled");
+            else $('#g-param-aNext').removeClass("disabled");
+
+            if (gpPage == 1) $('#g-param-aPrevious').addClass("disabled");
+            else $('#g-param-aPrevious').removeClass("disabled");
+
+            $("#g-param-pagerInfo").text("Page " + gpPage + " of " + gpMaxPage);
+        }
+        else {
+            trHTML += '<tr>' +
+                          '<td colspan="6"><div style="text-align:center"><small>data tidak ditemukan</div></small></td>' +                            
+                      '</tr>';
+            $('#g-param-aPrevious').addClass("disabled");
+            $('#g-param-aNext').addClass("disabled");
+            $("#g-param-pagerInfo").text("Page 1 of 1");
+        }
+        
+        $('#g-param-tabelEntity').append(trHTML);
+        $("#g-param-tabelEntity").show();
+        $("#g-param-loadingSpinner").remove();
+    });
+
+    return false;
+}
+
+function gPickerSearchEntity() {
+    var sector = $('#g-param-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    var keyword = $('#g-param-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    gpPage = 1;
+    gPickerGetEntityList(sector, keyword, gpPage);
+}
+
+function gPickerGetNextEntity() {
+    if (gpPage < gpMaxPage) {
+        var sector = $('#g-param-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var keyword = $('#g-param-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        gpPage += 1;
+        gPickerGetEntityList(sector, keyword, gpPage);
+    }
+}
+
+function gPickerGetPreviousEntity() {
+
+    if (gpPage > 1) {
+        var sector = $('#g-param-sectorList').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+        var keyword = $('#g-param-keyword').val().replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+        gpPage -= 1;
+        gPickerGetEntityList(sector, keyword, gpPage);
+    }
+}
+
+/*--------------------------- Download -------------------------------------------------*/
+
+function iboxToolsDownload(element, url, params, reportName) {
+    //formatting URL for GET Method
+    //us GET method for anticipating web browser doesn't support javascript download function
+    var newUrl = url + "?";
+    var parsedParam = JSON.parse(params);
+    $.each(parsedParam, function (k, v) {
+        newUrl += k + "=" + v + "&";
+    });
+
+    // browser compability check for javascript download function support
+    var a = document.createElement('a');
+    if (typeof a.download == "undefined" && !navigator.msSaveBlob) {
+        //doesn't support
+        window.location.href = newUrl.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+    else {
+        //support for xmlhttp request download
+        doJsDownload(element, newUrl, reportName, parsedParam['pExt']);
+    }
+}
+
+function doJsDownload(animatedElement, url, reportName, ext) {
+    // Now only support Excel download
+    var x;
+
+    if (window.XMLHttpRequest) {
+        x = new XMLHttpRequest();
+    }
+    else {
+        x = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    x.onreadystatechange = function () {
+        if (x.readyState != 4 && x.status != 200) {
+            $(animatedElement).empty();
+            $(animatedElement).append('<i class="fa fa-spinner fa-pulse"></i>');
+        }
+        else if (x.readyState == 4 && x.status == 200) {
+            $(animatedElement).empty();
+            $(animatedElement).append('<i class="fa fa-download"></i>');
+        }
+    }
+
+    var mime
+    x.open("GET", url, true);
+    x.responseType = 'blob';
+    x.onload = function (e) {
+        //if (x.responseXML = ! 'null')
+        download(x.response, reportName + new Date().getTime() + "." + ext, "application/octet-stream");
+        //else
+        //    alert("Gagal mendownload laporan.");
+    }
+    x.send();
+}
+function getTipeSPList(idSelect) {
+    var vIdSelect = idSelect.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    $.ajax({
+        url: '/GlobalParameter/getTipeSPList',
+        beforeSend: function (xhr) {
+            $('#' + vIdSelect).addClass("disabled");
+            $('#' + vIdSelect).empty();
+        }
+    }).done(function (data) {
+        var trHTML = '';
+        $.each(data, function (i, item) {
+            trHTML += '<option value="' + item.Value + '">' + item.Text + '</option>';
+        });
+        $('#' + vIdSelect).append(trHTML);
+    });
+}
+
+/*--------------------------- Global Parameter------------------------------------------*/
+
+$(document).ready(function () {
+
+    /**
+     * MFBQ 20/06/2016
+     * Custom function set footable page size in fullscreen mode
+     **/
+
+    $('.fullscreen-link').click(function () {             
+        $.each($("table.footable"), function () {
+            var pageSizeToogle = $(this).data("page-size-toggle");
+            var pageSize = $(this).data("page-size");
+            $(this).data('page-size', pageSizeToogle);//swap
+            $(this).data('page-size-toggle', pageSize);//swap           
+            $('.footable').trigger('footable_redraw');//force redraw
+        });              
+    });
+
+    $('.footable').footable();
+
+});

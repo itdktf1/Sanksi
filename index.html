@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manajemen Surat Sanksi OJK</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- docx-preview dependencies -->
     <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
@@ -34,8 +34,8 @@
                 <!-- Sidebar -->
                 <aside id="dashboard-sidebar" class="dashboard-sidebar closed">
                     <div class="sidebar-top">
-                        <h2 style="font-size: 1.1rem; color: var(--primary-color);">Menu</h2>
-                        <button id="btn-close-sidebar" class="btn btn-ghost btn-icon" title="Tutup Menu">✕</button>
+                        <h2 style="font-size: 1.1rem; color: #ffffff;">Menu</h2>
+                        <button id="btn-close-sidebar" class="btn btn-ghost btn-icon" title="Tutup Menu" style="color: #ffffff;">✕</button>
                     </div>
                     <ul class="sidebar-nav">
                         <li id="menu-dashboard"><span>Dashboard</span></li>
@@ -43,7 +43,7 @@
                         <li><span>SP</span></li>
                         <li><span>Pemeriksaan</span></li>
                         <li id="menu-manajemen-sanksi" class="active"><span>Manajemen Sanksi</span></li>
-                        <li><span>Konfigurasi Parameter Denda Administratif</span></li>
+                        <li id="menu-konfigurasi"><span>Konfigurasi Parameter Denda Administratif</span></li>
                     </ul>
                 </aside>
 
@@ -120,6 +120,36 @@
                     </div>
                 </div>
             </div>
+
+            <div class="content-container" id="view-konfigurasi" style="display: none;">
+                <div class="table-container glass-panel">
+                    <div class="table-header">
+                        <h2>Monitoring Denda Administratif</h2>
+                        <div class="search-bar">
+                            <input type="text" placeholder="Pencarian">
+                        </div>
+                    </div>
+                    <div class="table-scroll">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Sumber Aplikasi</th>
+                                    <th>Sektor</th>
+                                    <th>Nama Laporan</th>
+                                    <th>Frekuensi Pelaporan</th>
+                                    <th>Jenis Sanksi</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body-konfigurasi">
+                                <!-- Diisi oleh JavaScript via JSON -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
                 </div>
             </div>
         </main>
@@ -304,7 +334,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nama-laporan">Nama Laporan</label>
-                                <input type="text" id="nama-laporan" placeholder="Masukkan nama laporan">
+                                <input type="text" id="nama-laporan" placeholder="Masukkan nama laporan" disabled style="background: #e9ecef; cursor: not-allowed;">
                             </div>
                             <div class="form-group">
                                 <label for="periode-laporan">Periode Laporan</label>
@@ -312,7 +342,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="sumber-aplikasi">Sumber Aplikasi</label>
-                                <input type="text" id="sumber-aplikasi" placeholder="Masukkan sumber aplikasi">
+                                <input type="text" id="sumber-aplikasi" placeholder="Masukkan sumber aplikasi" disabled style="background: #e9ecef; cursor: not-allowed;">
                             </div>
                             <div class="form-group" id="status-keterlambatan-group">
                                 <label for="status-keterlambatan">Status Keterlambatan</label>
@@ -565,6 +595,90 @@
                         </div>
                     </div>
                 </section>
+            </div>
+        </main>
+
+        <!-- Halaman 3: Editor Konfigurasi -->
+        <main id="page-editor-konfigurasi" class="page" style="display: none;">
+            <div class="split-layout">
+                <aside class="editor-sidebar glass-panel" style="width: 100%; max-width: 100%; margin: 0; flex: 1; height: 100%; border-radius: 0;">
+                    <div class="sidebar-header">
+                        <button id="btn-back-konfigurasi" class="btn btn-ghost">← Kembali ke Konfigurasi</button>
+                    </div>
+                    
+                    <div class="sidebar-content">
+                        <h2>List Dokumen Variabel (Konfigurasi)</h2>
+                        <p class="subtitle">Detail parameter denda administratif.</p>
+                        
+                        <form id="editor-form-konfigurasi" class="dynamic-form" style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; overflow-y: auto; max-height: 65vh; padding-right: 15px;">
+
+                            <div class="form-group">
+                                <label>Sumber Aplikasi</label>
+                                <input type="text" id="konf-sumberAplikasi">
+                            </div>
+                            <div class="form-group">
+                                <label>Sektor</label>
+                                <input type="text" id="konf-sektor">
+                            </div>
+                            <div class="form-group">
+                                <label>Sub Sektor</label>
+                                <input type="text" id="konf-subSektor">
+                            </div>
+                            <div class="form-group">
+                                <label>Sub Sub Sektor</label>
+                                <input type="text" id="konf-subSubSektor">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Menu</label>
+                                <input type="text" id="konf-namaMenu">
+                            </div>
+                            <div class="form-group">
+                                <label>Kode Laporan</label>
+                                <input type="text" id="konf-kodeLaporan">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Laporan</label>
+                                <input type="text" id="konf-namaLaporan">
+                            </div>
+                            <div class="form-group">
+                                <label>Nomor Peraturan</label>
+                                <input type="text" id="konf-nomorPeraturan">
+                            </div>
+                            <div class="form-group">
+                                <label>Pasal Pelanggaran</label>
+                                <input type="text" id="konf-pasalPelanggaran">
+                            </div>
+                            <div class="form-group">
+                                <label>Frekuensi Pelaporan</label>
+                                <input type="text" id="konf-frekuensiPelaporan">
+                            </div>
+                            <div class="form-group">
+                                <label>Batas Waktu Pelaporan</label>
+                                <textarea id="konf-batasWaktu" rows="3" style="width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 0.75rem; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Batas Waktu Pelaporan pada Hari Libur</label>
+                                <textarea id="konf-batasWaktuLibur" rows="3" style="width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 0.75rem; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Ketentuan Keadaan Kahar</label>
+                                <textarea id="konf-ketentuanKahar" rows="3" style="width: 100%; border: 1px solid #ced4da; border-radius: 8px; padding: 0.75rem; font-family: inherit; font-size: 0.95rem; resize: vertical;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Jenis Sanksi</label>
+                                <input type="text" id="konf-jenisSanksi">
+                            </div>
+                            <div class="form-group">
+                                <label>Status</label>
+                                <input type="text" id="konf-status">
+                            </div>
+                            
+                            <div class="form-actions" style="grid-column: span 2; margin-top: 1rem;">
+                                <button type="button" class="btn btn-primary" id="btn-simpan-konfigurasi" style="width: 100%;">Simpan Konfigurasi</button>
+                            </div>
+                        </form>
+                    </div>
+                </aside>
             </div>
         </main>
     </div>

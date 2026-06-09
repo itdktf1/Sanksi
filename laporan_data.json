@@ -2,7 +2,7 @@
   "LAP-001": {
     "Nama Laporan": "Laporan Bulanan Bank Umum",
     "Periode Laporan": "Januari 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-02-15",
     "Tanggal Lapor": "2026-02-20",
     "Jumlah Hari Keterlambatan": 5,
@@ -16,7 +16,7 @@
   "LAP-002": {
     "Nama Laporan": "Laporan Transaksi Keuangan Mencurigakan",
     "Periode Laporan": "Februari 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-03-10",
     "Tanggal Lapor": "2026-04-15",
     "Jumlah Hari Keterlambatan": 36,
@@ -30,7 +30,7 @@
   "LAP-003": {
     "Nama Laporan": "Laporan Pengaduan Nasabah",
     "Periode Laporan": "Maret 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-04-10",
     "Tanggal Lapor": "2026-04-20",
     "Jumlah Hari Keterlambatan": 10,
@@ -44,7 +44,7 @@
   "LAP-004": {
     "Nama Laporan": "Laporan Profil Risiko",
     "Periode Laporan": "Desember 2025",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-01-15",
     "Tanggal Lapor": "2026-02-25",
     "Jumlah Hari Keterlambatan": 41,
@@ -58,7 +58,7 @@
   "LAP-005": {
     "Nama Laporan": "Laporan Profil Perusahaan Terkini",
     "Periode Laporan": "April 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-05-15",
     "Tanggal Lapor": "2026-05-27",
     "Jumlah Hari Keterlambatan": 12,
@@ -72,7 +72,7 @@
   "LAP-006": {
     "Nama Laporan": "Laporan Perubahan Pemegang Saham",
     "Periode Laporan": "Maret 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-04-10",
     "Tanggal Lapor": "2026-05-25",
     "Jumlah Hari Keterlambatan": 45,
@@ -86,7 +86,7 @@
   "LAP-007": {
     "Nama Laporan": "Laporan Profil Pemilik Manfaat (UBO)",
     "Periode Laporan": "Mei 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-06-05",
     "Tanggal Lapor": "2026-06-10",
     "Jumlah Hari Keterlambatan": 5,
@@ -100,7 +100,7 @@
   "LAP-008": {
     "Nama Laporan": "Laporan Perubahan Jaringan Kantor",
     "Periode Laporan": "Januari 2026",
-    "Sumber Aplikasi": "Apollo",
+    "Sumber Aplikasi": "APOLO",
     "Tanggal Batas Pelaporan": "2026-02-28",
     "Tanggal Lapor": "2026-04-19",
     "Jumlah Hari Keterlambatan": 50,
