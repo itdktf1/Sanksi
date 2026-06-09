@@ -20,10 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnOpenSidebar = document.getElementById('btn-open-sidebar');
     const menuDashboard = document.getElementById('menu-dashboard');
     const menuManajemenSanksi = document.getElementById('menu-manajemen-sanksi');
+    const menuKonfigurasi = document.getElementById('menu-konfigurasi');
     
     // View Elements
     const viewSipDashboard = document.getElementById('view-sip-dashboard');
     const viewManajemenSanksi = document.getElementById('view-manajemen-sanksi');
+    const viewKonfigurasi = document.getElementById('view-konfigurasi');
     const headerTitle = document.getElementById('header-title');
 
     if (btnCloseSidebar && dashboardSidebar && btnOpenSidebar) {
@@ -42,9 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
         menuDashboard.addEventListener('click', () => {
             menuDashboard.classList.add('active');
             menuManajemenSanksi.classList.remove('active');
+            if (menuKonfigurasi) menuKonfigurasi.classList.remove('active');
             
             viewSipDashboard.style.display = 'flex';
             viewManajemenSanksi.style.display = 'none';
+            if (viewKonfigurasi) viewKonfigurasi.style.display = 'none';
             if (headerTitle) headerTitle.textContent = 'Dashboard';
             if (btnCreate) btnCreate.style.display = 'none';
         });
@@ -52,12 +56,28 @@ document.addEventListener('DOMContentLoaded', () => {
         menuManajemenSanksi.addEventListener('click', () => {
             menuManajemenSanksi.classList.add('active');
             menuDashboard.classList.remove('active');
+            if (menuKonfigurasi) menuKonfigurasi.classList.remove('active');
             
             viewSipDashboard.style.display = 'none';
             viewManajemenSanksi.style.display = '';
+            if (viewKonfigurasi) viewKonfigurasi.style.display = 'none';
             if (headerTitle) headerTitle.textContent = 'Manajemen Sanksi';
             if (btnCreate) btnCreate.style.display = '';
         });
+
+        if (menuKonfigurasi && viewKonfigurasi) {
+            menuKonfigurasi.addEventListener('click', () => {
+                menuKonfigurasi.classList.add('active');
+                menuDashboard.classList.remove('active');
+                menuManajemenSanksi.classList.remove('active');
+                
+                viewSipDashboard.style.display = 'none';
+                viewManajemenSanksi.style.display = 'none';
+                viewKonfigurasi.style.display = 'flex';
+                if (headerTitle) headerTitle.textContent = 'Konfigurasi Parameter Denda Administratif';
+                if (btnCreate) btnCreate.style.display = 'none';
+            });
+        }
     }
 
     // Form Inputs
@@ -149,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let pujkData = {};
     let bankData = {};
     let laporanData = {};
+    let konfigurasiData = [];
     let currentEditIndex = null;
 
     // Helper Functions for Periode
@@ -248,10 +269,10 @@ document.addEventListener('DOMContentLoaded', () => {
             formInputs.jabatan,
             formInputs.npwpPerusahaanMenjabat,
             formInputs.jenisIdentitasPerusahaan,
-            formInputs.namaLaporan,
             formInputs.periodeLaporan,
-            formInputs.sumberAplikasi,
             formInputs.tanggalBatasPelaporan,
+            formInputs.tanggalLapor,
+            formInputs.statusKeterlambatan,
             formInputs.jenisPelanggaran,
             formInputs.subJenisPelanggaran,
             formInputs.subSubJenisPelanggaran,
@@ -920,6 +941,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // Render Table
+    function renderTableKonfigurasi() {
+        const tbodyKonf = document.getElementById('table-body-konfigurasi');
+        if (!tbodyKonf) return;
+        tbodyKonf.innerHTML = '';
+        
+        if (!konfigurasiData || konfigurasiData.length === 0) {
+            tbodyKonf.innerHTML = '<tr><td colspan="7" class="text-center">Data kosong</td></tr>';
+            return;
+        }
+
+        konfigurasiData.forEach((item, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${item.sumberAplikasi || '-'}</td>
+                <td>${item.sektor || '-'}</td>
+                <td>${item.namaLaporan || '-'}</td>
+                <td>${item.frekuensiPelaporan || '-'}</td>
+                <td>${item.jenisSanksi || '-'}</td>
+                <td><span class="badge ${item.status === 'Aktif' ? 'selesai' : 'draft'}">${item.status || '-'}</span></td>
+                <td style="white-space: nowrap;">
+                    <button class="btn btn-ghost btn-icon" onclick="editKonfigurasi(${index})" title="Edit">✏️</button>
+                </td>
+            `;
+            tbodyKonf.appendChild(tr);
+        });
+    }
+
     function renderTable() {
         // Update Stats
         if(statDraft) statDraft.textContent = globalData.stats.draft || 0;
@@ -1184,6 +1232,16 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch Initial Data
     async function loadData() {
         try {
+            try {
+                const konfRes = await fetch('konfigurasi_data.json');
+                if (konfRes.ok) {
+                    konfigurasiData = await konfRes.json();
+                    renderTableKonfigurasi();
+                }
+            } catch (e) {
+                console.error("Error loading konfigurasi data:", e);
+            }
+
             const lapRes = await fetch('laporan_data.json');
             if (lapRes.ok) {
                 laporanData = await lapRes.json();
@@ -1451,7 +1509,20 @@ document.addEventListener('DOMContentLoaded', () => {
             formInputs.jenisPelanggaran.value = data['Jenis Pelanggaran'] || '';
             formInputs.subJenisPelanggaran.value = data['Sub Jenis Pelanggaran'] || '';
             formInputs.subSubJenisPelanggaran.value = data['Sub Sub Jenis Pelanggaran'] || '';
-            formInputs.jenisPeraturan.value = data['Jenis Peraturan'] || '';
+            
+            let jpData = data['Jenis Peraturan'] || '';
+            let jpVal = '';
+            if (jpData.toLowerCase().replace('-', ' ') === 'undang undang') {
+                jpVal = 'Undang Undang';
+            } else if (jpData.toLowerCase() === 'pojk') {
+                jpVal = 'POJK';
+            } else if (jpData.toLowerCase() === 'peraturan regulator lainnya') {
+                jpVal = 'Peraturan Regulator Lainnya';
+            } else {
+                jpVal = jpData; // fallback
+            }
+            formInputs.jenisPeraturan.value = jpVal;
+            
             formInputs.nomorPeraturan.value = data['Nomor Peraturan'] || '';
             formInputs.pasalPelanggaran.value = data['Pasal Pelanggaran'] || '';
             
@@ -1581,6 +1652,51 @@ document.addEventListener('DOMContentLoaded', () => {
             if (e.target === modalRiwayat) {
                 modalRiwayat.style.display = 'none';
             }
+        });
+    }
+
+    window.editKonfigurasi = function(index) {
+        const item = konfigurasiData[index];
+        if (!item) return;
+        
+
+        document.getElementById('konf-sumberAplikasi').value = item.sumberAplikasi || '';
+        document.getElementById('konf-sektor').value = item.sektor || '';
+        document.getElementById('konf-subSektor').value = item.subSektor || '';
+        document.getElementById('konf-subSubSektor').value = item.subSubSektor || '';
+        document.getElementById('konf-namaMenu').value = item.namaMenu || '';
+        document.getElementById('konf-kodeLaporan').value = item.kodeLaporan || '';
+        document.getElementById('konf-namaLaporan').value = item.namaLaporan || '';
+        document.getElementById('konf-nomorPeraturan').value = item.nomorPeraturan || '';
+        document.getElementById('konf-pasalPelanggaran').value = item.pasalPelanggaran || '';
+        document.getElementById('konf-frekuensiPelaporan').value = item.frekuensiPelaporan || '';
+        document.getElementById('konf-batasWaktu').value = item.batasWaktu || '';
+        document.getElementById('konf-batasWaktuLibur').value = item.batasWaktuLibur || '';
+        document.getElementById('konf-ketentuanKahar').value = item.ketentuanKahar || '';
+        document.getElementById('konf-jenisSanksi').value = item.jenisSanksi || '';
+        document.getElementById('konf-status').value = item.status || '';
+        
+        document.getElementById('page-dashboard').classList.remove('active');
+        document.getElementById('page-dashboard').style.display = 'none';
+        document.getElementById('page-editor-konfigurasi').style.display = 'block';
+    };
+
+    const btnBackKonfigurasi = document.getElementById('btn-back-konfigurasi');
+    if (btnBackKonfigurasi) {
+        btnBackKonfigurasi.addEventListener('click', () => {
+            document.getElementById('page-editor-konfigurasi').style.display = 'none';
+            document.getElementById('page-dashboard').style.display = 'block';
+            document.getElementById('page-dashboard').classList.add('active');
+        });
+    }
+
+    const btnSimpanKonfigurasi = document.getElementById('btn-simpan-konfigurasi');
+    if (btnSimpanKonfigurasi) {
+        btnSimpanKonfigurasi.addEventListener('click', () => {
+            alert('Konfigurasi berhasil disimpan!');
+            document.getElementById('page-editor-konfigurasi').style.display = 'none';
+            document.getElementById('page-dashboard').style.display = 'block';
+            document.getElementById('page-dashboard').classList.add('active');
         });
     }
 

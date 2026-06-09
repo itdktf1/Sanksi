@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://sipb.ojk.go.id/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>SIP - Home</title>
+    <link href="./SIP - Home_files/bootstrap.css" rel="stylesheet">
+<link href="./SIP - Home_files/animate.css" rel="stylesheet">
+<link href="./SIP - Home_files/style.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/footable.core.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/chosen.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/datepicker3.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/ladda-themeless.min.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/spinners.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/buttonLoader.css" rel="stylesheet">
+
+    <link href="./SIP - Home_files/dx.common.css" rel="stylesheet">
+<link href="./SIP - Home_files/dx.generic.common-cust.css" rel="stylesheet">
+
+    <!-- load jquery & bootstrap at head tag, so ASP MVC MainContent can use it --> 
+    <script src="./SIP - Home_files/jquery-2.1.1.js.download"></script>
+
+    <script src="./SIP - Home_files/bootstrap.min.js.download"></script>
+
+    <script src="./SIP - Home_files/chosen.jquery.js.download"></script>
+
+    <script src="./SIP - Home_files/bootstrap-datepicker.js.download"></script>
+
+    <script src="./SIP - Home_files/moment-with-locales.min.js.download"></script>
+
+    <script src="./SIP - Home_files/spin.min.js.download"></script><style type="text/css"></style>
+<script src="./SIP - Home_files/ladda.min.js.download"></script>
+<script src="./SIP - Home_files/ladda.jquery.min.js.download"></script>
+
+    <script src="./SIP - Home_files/jquery.buttonLoader.min.js.download"></script>
+
+    <script src="./SIP - Home_files/dx.all.js.download"></script>
+<script src="./SIP - Home_files/dx.aspnet.mvc.js.download"></script>
+<script src="./SIP - Home_files/dx.aspnet.data.js.download"></script>
+
+
+
+
+    <script src="./SIP - Home_files/select2.full.min.js.download"></script>
+    <link href="./SIP - Home_files/select2.min.css" rel="stylesheet">
+    <link href="https://sipb.ojk.go.id/IconPath/favicon.png" rel="icon" type="image/png">
+</head>
+<body class=" pace-done"><div class="pace  pace-inactive"><div class="pace-progress" data-progress-text="100%" data-progress="99" style="transform: translate3d(100%, 0px, 0px);">
+  <div class="pace-progress-inner"></div>
+</div>
+<div class="pace-activity"></div></div>
+    <div id="loadingoverlay">
+        <div class="loader1"></div>
+        <div class="loader2"></div>
+        <div class="loader3"></div>
+        <div class="logojk"></div>
+    </div>
+    
+    <!-- Wrapper-->
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="app-header">
+                        <button class="logo-app" data-toggle="dropdown"></button>
+
+                        
+                        <div class="logo-name" id="appName"><span>SIP Perbankan</span></div>
+                    </li>
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img width="45" height="45" src="./SIP - Home_files/man.jpg" class="img-circle" alt="image">
+                            </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="https://sipb.ojk.go.id/#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold">Fulan Guritno</strong>
+                                    </span> <span class="text-muted text-xs block">SIP BU Drafter<b class="caret"></b></span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li><a href="https://sipb.ojk.go.id/Account/MyProfile">Profil</a></li>
+                                <li><a href="https://sipb.ojk.go.id/#" data-target="#r-Picker" data-toggle="modal">Ganti Peran</a></li>
+                                <!-- if user external muncul ganti password -->
+
+                            </ul>
+                        </div>
+                    </li>
+                    <li class=""><a href="https://sipb.ojk.go.id/Home" title="Beranda" onclick="GetHierarchy(&#39;010000&#39;)"><i class="fa fa-home"></i><span class="nav-label">Beranda</span> <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/KnowledgeMgt" title="Knowledge Management" onclick="GetHierarchy(&#39;200000&#39;)"><i class="fa fa-book"></i><span class="nav-label">Knowledge Management</span> <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/TodoList" title="To do List" onclick="GetHierarchy(&#39;210000&#39;)"><i class="fa fa-list-ul"></i><span class="nav-label">To do List</span> <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LibrarySatker" title="Library Satuan Kerja" onclick="GetHierarchy(&#39;220000&#39;)"><i class="fa fa-university"></i><span class="nav-label">Library Satuan Kerja</span> <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Quality Assurance Pengawasan" class="dropdown-toggle"><i class="fa fa-search"></i><span class="nav-label">Quality Assurance Pengawasan</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/JadwalPelaksanaanForumPanel" title="Jadwal Pelaksanaan Forum Panel" onclick="GetHierarchy(&#39;090100&#39;)"><i class="fa fa-calendar"></i>Jadwal Pelaksanaan Forum Panel <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/QAHasilPelaksanaanFP" title="Hasil Forum Panel" onclick="GetHierarchy(&#39;090200&#39;)"><i class="fa fa-file-text-o"></i>Hasil Forum Panel <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/DokumenPendukungForumPanel" title="Download Template" onclick="GetHierarchy(&#39;090300&#39;)"><i class="fa fa-download"></i>Download Template <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Penyusunan" class="dropdown-toggle"><i class="fa fa-th"></i><span class="nav-label">Penyusunan</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/PenyusunanKYB" title="Know Your Bank (KYB)" onclick="GetHierarchy(&#39;180101&#39;)"><i class="fa fa-external-link"></i>Know Your Bank (KYB) <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/PenyusunanSP" title="Supervisory Plan" onclick="GetHierarchy(&#39;180103&#39;)"><i class="fa fa-external-link"></i>Supervisory Plan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/PemantauanSP" title="Pemantauan SP" onclick="GetHierarchy(&#39;180104&#39;)"><i class="fa fa-external-link"></i>Pemantauan SP <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/PenyusunanRBBR" title="Risk Based Bank Rating (RBBR)" onclick="GetHierarchy(&#39;180102&#39;)"><i class="fa fa-external-link"></i>Risk Based Bank Rating (RBBR) <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Bank Performance Report BUK" class="dropdown-toggle"><i class="fa fa-calculator"></i><span class="nav-label">Bank Performance Report BUK</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/BPERKualitasAktiva" title="Kualitas Aset" onclick="GetHierarchy(&#39;150101&#39;)"><i class="fa fa-external-link"></i>Kualitas Aset <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERATMRKredit" title="ATMR Risiko Kredit" onclick="GetHierarchy(&#39;150102&#39;)"><i class="fa fa-external-link"></i>ATMR Risiko Kredit <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERATMROperasional" title="ATMR Risiko Operasional" onclick="GetHierarchy(&#39;150103&#39;)"><i class="fa fa-external-link"></i>ATMR Risiko Operasional <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERKpmm" title="KPMM" onclick="GetHierarchy(&#39;150104&#39;)"><i class="fa fa-external-link"></i>KPMM <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERPdn" title="PDN" onclick="GetHierarchy(&#39;150105&#39;)"><i class="fa fa-external-link"></i>PDN <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERBmpk" title="BMPK" onclick="GetHierarchy(&#39;150106&#39;)"><i class="fa fa-external-link"></i>BMPK <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERPeerGroup" title="Peer Group" onclick="GetHierarchy(&#39;150107&#39;)"><i class="fa fa-external-link"></i>Peer Group <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERKompPosisi" title="Komponen Posisi" onclick="GetHierarchy(&#39;150108&#39;)"><i class="fa fa-external-link"></i>Komponen Posisi <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERRasioPosisi" title="Rasio Posisi" onclick="GetHierarchy(&#39;150110&#39;)"><i class="fa fa-external-link"></i>Rasio Posisi <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERKompTrend" title="Komponen Trend" onclick="GetHierarchy(&#39;150109&#39;)"><i class="fa fa-external-link"></i>Komponen Trend <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERRasioKeseluruhanPeer" title="Rasio Keseluruhan Peer" onclick="GetHierarchy(&#39;150111&#39;)"><i class="fa fa-external-link"></i>Rasio Keseluruhan Peer <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/BPERRasioTrend" title="Rasio Trend" onclick="GetHierarchy(&#39;150112&#39;)"><i class="fa fa-external-link"></i>Rasio Trend <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Dokumen Output" class="dropdown-toggle"><i class="fa fa-download"></i><span class="nav-label">Dokumen Output</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanKYB" title="Know Your Bank (KYB)" onclick="GetHierarchy(&#39;160101&#39;)"><i class="fa fa-external-link"></i>Know Your Bank (KYB) <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanRBBR" title="Risk Based Bank Rating (RBBR)" onclick="GetHierarchy(&#39;160102&#39;)"><i class="fa fa-external-link"></i>Risk Based Bank Rating (RBBR) <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanSP" title="Supervisory Plan" onclick="GetHierarchy(&#39;160103&#39;)"><i class="fa fa-external-link"></i>Supervisory Plan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanSIP" title="Laporan" onclick="GetHierarchy(&#39;160105&#39;)"><i class="fa fa-external-link"></i>Laporan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanPemantauanSP" title="Pemantauan Supervisory Plan" onclick="GetHierarchy(&#39;160104&#39;)"><i class="fa fa-external-link"></i>Pemantauan Supervisory Plan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanMonitoringPenyelesaianLAB" title="Monitoring penyelesaian LAB" onclick="GetHierarchy(&#39;160106&#39;)"><i class="fa fa-external-link"></i>Monitoring penyelesaian LAB <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanTPPRekapPemantauan" title="Rekap Pemantauan" onclick="GetHierarchy(&#39;160107&#39;)"><i class="fa fa-external-link"></i>Rekap Pemantauan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanLAB" title="Laporan Analisis Bulanan (LAB)" onclick="GetHierarchy(&#39;160108&#39;)"><i class="fa fa-external-link"></i>Laporan Analisis Bulanan (LAB) <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LaporanALNCDALDPK" title="Kertas Kerja ALNCD dan ALDPK" onclick="GetHierarchy(&#39;160111&#39;)"><i class="fa fa-list-alt"></i>Kertas Kerja ALNCD dan ALDPK <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Administrasi SIP New" onclick="GetHierarchy(&#39;170000&#39;)"><i class="fa fa-cog"></i><span class="nav-label">Administrasi SIP New</span> <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Laporan Analisis Bulanan (BUK)" class="dropdown-toggle"><i class="fa fa-bar-chart"></i><span class="nav-label">Laporan Analisis Bulanan (BUK)</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline1BU" title="Ringkasan Eksekutif &amp; Arahan Pimpinan" onclick="GetHierarchy(&#39;270001&#39;)"><i class="fa fa-external-link"></i>Ringkasan Eksekutif &amp; Arahan Pimpinan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline2BU" title="Data Pokok Bank" onclick="GetHierarchy(&#39;270002&#39;)"><i class="fa fa-external-link"></i>Data Pokok Bank <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline3BU" title="Kinerja &amp; Rasio Keuangan Utama" onclick="GetHierarchy(&#39;270003&#39;)"><i class="fa fa-external-link"></i>Kinerja &amp; Rasio Keuangan Utama <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline4BU" title="Informasi Terkait Risiko Kredit" onclick="GetHierarchy(&#39;270004&#39;)"><i class="fa fa-external-link"></i>Informasi Terkait Risiko Kredit <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline5BU" title="Informasi Terkait Risiko Pasar" onclick="GetHierarchy(&#39;270005&#39;)"><i class="fa fa-external-link"></i>Informasi Terkait Risiko Pasar <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline6BU" title="Informasi Terkait Risiko Likuiditas" onclick="GetHierarchy(&#39;270006&#39;)"><i class="fa fa-external-link"></i>Informasi Terkait Risiko Likuiditas <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline7BU" title="Informasi Terkait Pengawasan" onclick="GetHierarchy(&#39;270007&#39;)"><i class="fa fa-external-link"></i>Informasi Terkait Pengawasan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/LABOutline8BU" title="Rekapitulasi Laporan Bank" onclick="GetHierarchy(&#39;270008&#39;)"><i class="fa fa-external-link"></i>Rekapitulasi Laporan Bank <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Manajemen Pemeriksaan" class="dropdown-toggle"><i class="fa fa-tasks"></i><span class="nav-label">Manajemen Pemeriksaan</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/Pemeriksaan" title="Rekap Pemeriksaan" onclick="GetHierarchy(&#39;410100&#39;)"><i class="fa fa-folder-open"></i>Rekap Pemeriksaan <span></span></a></li></ul></li><li class=""><a href="https://sipb.ojk.go.id/#" title="Tindakan Pengawasan dan Pemantauan" class="dropdown-toggle"><i class="fa fa-briefcase"></i><span class="nav-label">Tindakan Pengawasan dan Pemantauan</span> <span class="fa arrow"></span></a><ul class="nav nav-second-level collapse"><li class=""><a href="https://sipb.ojk.go.id/BU/TPPInputTemuHasilPeriksa" title="Temuan Hasil Pemeriksaan" onclick="GetHierarchy(&#39;290001&#39;)"><i class="fa fa-external-link"></i>Temuan Hasil Pemeriksaan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/TPPConcernPengawasanOffsite" title="Concern Pengawasan Offsite" onclick="GetHierarchy(&#39;290002&#39;)"><i class="fa fa-external-link"></i>Concern Pengawasan Offsite <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/TPPRekapPemantauan" title="Rekap Pemantauan" onclick="GetHierarchy(&#39;290004&#39;)"><i class="fa fa-external-link"></i>Rekap Pemantauan <span></span></a></li><li class=""><a href="https://sipb.ojk.go.id/BU/StatusPengawasan" title="Status Pengawasan Bank" onclick="GetHierarchy(&#39;170300&#39;)"><i class="fa fa-external-link"></i>Status Pengawasan Bank <span></span></a></li></ul></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Pop up Ganti Peran -->
+        
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg" style="min-height: 665px;">
+
+            <!-- Top Navbar -->
+            <div class="row">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-danger" href="https://sipb.ojk.go.id/#"><i class="fa fa-bars"></i> </a>
+                    </div>
+                    <div class="logoOJK"></div>
+                    
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li class="dropdown">
+                            <a href="https://sipb.ojk.go.id/#" data-toggle="dropdown" class="dropdown-toggle count-info">
+                                <i class="fa fa-envelope"></i>
+                                <span class="label label-warning">0</span>
+                            </a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="https://sipb.ojk.go.id/#" data-toggle="dropdown" class="dropdown-toggle count-info">
+                                <i class="fa fa-bell"></i>
+                                <span class="label label-primary"> 0</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-alerts">
+                                
+                                <li>
+                                    <div class="text-center">
+                                        <a href="https://sipb.ojk.go.id/#">
+                                            <span class="text-muted">Selengkapnya</span>
+                                        </a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="https://sipb.ojk.go.id/Account/LogOut"><i class="fa fa-sign-out"></i><span class="text-muted">Log Out</span> </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Channel -->
+            
+
+            <!-- Bread Crumb -->
+            
+            <div class="row wrapper border-top white-bg page-heading">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li class="active"> <a href="https://sipb.ojk.go.id/Home">Beranda</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Global Parameter -->
+            
+            <div class="row wrapper border-bottom page-heading gray2-bg" id="g-param">
+
+                <div class="col-lg-8">
+                    <div class="row">
+                        <div class="col-xs-10">
+                            <div class="g-container border-bottom" id="gbleftparm" style="display: none;">
+                                <div class="g-bank-code">
+                                    <label class="label label-danger" id="gbcode">010101-213</label>
+                                    <label class="label label-success" id="gbtype">K</label>
+                                </div>
+                                <div class="g-bank-name">
+                                    <h2>
+                                        <span id="gbname">PT BANK SMBC INDONESIA, TBK</span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row">
+                        <div class="col-xs-5" id="RowSPParam" style="display:none">
+                            <div class="g-container border-bottom">
+                                <div class="g-year-parameter">
+                                    <h2>
+                                        <span id="SPparam">Initial</span>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <div class="g-container border-bottom" id="gbrightparm">
+                                <div class="g-year-parameter">
+                                    <h2>
+                                        <span id="gperiode">June,</span>
+                                        
+                                        
+
+                                        <span id="gtahun">2026</span>
+
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-2">
+                            <h2>
+                                <button type="submit" class="btn btn-go" onclick="openGlobalParamPicker()">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                            </h2>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <!-- Main view  -->
+            <div>
+                <div class="wrapper wrapper-content animated fadeIn">
+                     
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="ibox">
+                <div class=" alert alert-warning">
+                    Belum terdapat catatan pemantauan triwulan berjalan untuk periode SP tahun berjalan.
+                </div>
+            <div class="ibox-title">
+                <h5>Pengumuman</h5>
+                <div class="ibox-tools">
+                </div>
+            </div>
+            <div class="ibox-content">
+                            
+                            <div class="ibox-content-border m-b-sm border-bottom">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-1">
+                                        <time class="icon">
+                                            <span>03</span>
+                                            <span>Des </span>
+                                            
+                                            <strong>2024</strong>
+                                        </time>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-11">
+                                        <a href="https://sipb.ojk.go.id/Home/View?sId=8C4XgjenrGQ%3D" class="btn-link">
+                                            <h3>Penyampaian Informasi Terkait Implementasi Aplikasi Sistem Informasi Pengawasan (SIP) Perbankan Modul Manajemen Pemeriksaan Bank Umum</h3>
+                                        </a>
+                                        <div class="small m-b-xs">
+                                            <strong>Mark Z</strong>
+                                        </div>
+                                        <p>Ysh. Bapak/Ibu Pengawas Bank Umum,Dalam rangka meningkatkan
+efektivitas dan efisiensi alur kerja pemeriksaan Bank Umum berdasarkan risiko,
+termasuk penyusunan, pemeliharaan pangkalan data (database), serta untuk mempermudah aksesibilitas data dan inf.....</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ibox-content-border m-b-sm border-bottom">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-6 col-lg-1">
+                                        <time class="icon">
+                                            <span>03</span>
+                                            <span>Des </span>
+                                            
+                                            <strong>2024</strong>
+                                        </time>
+                                    </div>
+                                    <div class="col-sm-12 col-md-6 col-lg-11">
+                                        <a href="https://sipb.ojk.go.id/Home/View?sId=TiVkCapmk0o%3D" class="btn-link">
+                                            <h3>Penyampaian Informasi Terkait Implementasi Aplikasi Sistem Informasi Pengawasan (SIP) Perbankan Modul Rincian KPMM dan ATMR BPRS</h3>
+                                        </a>
+                                        <div class="small m-b-xs">
+                                            <strong>Sam A</strong>
+                                        </div>
+                                        <p>Ysh. Bapak/Ibu Pengawas BPRS,Sehubungan adanya kebutuhan
+pemindahan penyajian data Rincian KPMM,
+ATMR, KAP, dan PPAP BPRS yang saat ini tersaji pada SIMWAS BPRS, dimana aplikasi tersebut dibangun di
+atas operating system (OS) yang telah
+memasuki masa.....</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                
+                
+                <p style="text-align:right;"><a href="https://sipb.ojk.go.id/Home/ViewAll" class="btn-link">Lihat semua pengumuman <i class="fa fa-long-arrow-right"></i></a></p>
+            </div>
+    </div>
+</div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $("#gbleftparm").hide();
+        $("#g-param-divEntity").hide();
+        $("#g-param-search").hide();
+        DevExpress.ui.dxOverlay.baseZIndex(9000);
+        
+    });
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+
+    /* set parameter for filter */
+    function addSearchParam(operation, ajaxSettings) {
+        if (operation == "load") {
+            ajaxSettings.data.pKeyword = $("#filterKeyword").dxTextBox("instance").option('value');
+        }
+    }
+
+    function searchGrid() {
+        $("#GridSearchData").dxDataGrid("instance").refresh();
+    }
+
+    /* Action Tombol Open Link */
+    function OpenLink(e, mod) {
+        if (mod == 'KYB')
+            window.location.href = "/Laporan" + mod + "/DownloadFinal?id=" + e.row.data.PBIdKYBEnc;
+        else if (mod == 'RBBR')
+            window.location.href = "/Laporan" + mod + "/DownloadFinal?id=" + e.row.data.PBIdRBBREnc;
+        else if (mod == 'SP')
+            window.location.href = "/Laporan" + mod + "/DownloadFinal?id=" + e.row.data.PBIdSPEnc;
+    }
+
+    function IsVisible(e, mod) {
+        if (mod == 'KYB' && e.row.data.PBIdKYB != null)
+            return true;
+        else if (mod == 'RBBR' && e.row.data.PBIdRBBR != null)
+            return true;
+        else if (mod == 'SP' && e.row.data.PBIdSP != null)
+            return true;
+        else
+            return false;
+    }
+
+    var formatDate = new Intl.DateTimeFormat("id-ID").format;
+</script>
+
+<style>
+    /*#GridSearchData {
+                        height: 200px;
+                    }*/
+
+    #GridSearchData tr.main-row {
+        height: 30px;
+    }
+
+        #GridSearchData tr.main-row td {
+            padding-left: 5px;
+        }
+
+    #GridSearchData tr.notes-row {
+        white-space: normal;
+        vertical-align: top;
+    }
+
+        #GridSearchData tr.notes-row td {
+            /* height: 10px;*/
+            color: grey;
+            padding-left: 5px;
+        }
+
+    .dark #GridSearchData tr.notes-row td {
+        color: #777;
+        padding-left: 5px;
+    }
+
+    #GridSearchData tbody.dx-state-hover {
+        background-color: #EBEBEB;
+    }
+
+    .dark #GridSearchData tbody.dx-state-hover {
+        background-color: #484848;
+    }
+
+    #GridSearchData tbody.dx-state-hover tr.main-row td {
+        color: #000;
+    }
+
+    .dark #GridSearchData tbody.dx-state-hover tr.main-row td {
+        color: #CCC;
+    }
+
+    #GridSearchData tbody.dx-state-hover tr.notes-row td {
+        color: #888;
+    }
+</style>
+
+                </div>
+            </div>
+
+            <!-- Pop Up Global Parameter Change -->
+            
+            
+
+            <!-- Footer -->
+            <div class="footer">
+                <div class="pull-right">
+                    <span>Aplikasi SIP Perbankan</span>
+                    <span><small>Copyright © 2026 - Otoritas Jasa Keuangan</small></span>
+                </div>
+            </div>
+
+        </div>
+        <!-- End page wrapper-->
+    </div>
+    <!-- End wrapper-->
+    <script src="./SIP - Home_files/metisMenu.min.js.download"></script>
+
+    <script src="./SIP - Home_files/pace.min.js.download"></script>
+
+    <script src="./SIP - Home_files/jquery.slimscroll.min.js.download"></script>
+
+    <script src="./SIP - Home_files/jquery.validate.min.js.download"></script>
+
+    <script src="./SIP - Home_files/footable.all.min.js.download"></script>
+
+    <!-- Custom javascript file, load at last -->
+    <script src="./SIP - Home_files/inspinia.js.download"></script>
+
+    <!-- Custom javascript file, load at last -->
+    <script src="./SIP - Home_files/frw.1.js.download"></script>
+
+    <script src="./SIP - Home_files/CF.js.download"></script>
+
+    
+    <script>
+        //$(document).ready(function () {
+        //    //Ladda.bind('.ladda-button');
+        //    var path = window.location.pathname.toLowerCase();
+
+        //    // Cek apakah path MENGANDUNG '/bu/pemantauansp'
+        //    var isPemantauanSP = path.indexOf('/bu/pemantauansp') !== -1;
+
+        //    var isPenyusunanSP = path.indexOf('/bu/penyusunansp') !== -1;
+
+        //    if (!isPemantauanSP || isPenyusunanSP) {
+        //        $('#row-g-param-triwulan').hide();
+        //        $('#g-param-triwulan').hide();
+                
+        //        $('#gquarter').hide();
+        //    } else {
+        //        $('#row-g-param-triwulan').show(); // Jaga-jaga kalau sebelumnya terlanjur di-hide
+        //        $('#gquarter').show();
+        //    }
+
+        //});
+        $(document).ready(function () {
+            var path = window.location.pathname.toLowerCase();
+            //|| path.indexOf('/bu/penyusunansp') !== -1
+            ////var shouldShow = path.indexOf('/bu/pemantauansp') !== -1 ; 
+
+            ////if (shouldShow) {
+            ////    $('#row-g-param-triwulan').show();
+            ////    $('#g-param-triwulan').show();
+            ////    $('#gquarter').show();
+            ////} else {
+            ////    $('#row-g-param-triwulan').hide();
+            ////    $('#g-param-triwulan').hide();
+            ////    $('#gquarter').hide();
+            ////}
+        });
+        function GetHierarchy(id) {
+            $.ajax({
+                url: '/MenuNavigation/GetHierarchy',
+                data: { pID: id },
+                async: false,
+                success: function (data, result) {
+                    if (!result)
+                        alert('Failed reload data');
+                }
+            })
+        }
+    </script>
+    <style>
+        .dx-header-row .center-header {
+            text-align: center !important;
+        }
+        .dx-selectbox-popup-wrapper .dx-list-item-content {
+            word-wrap: break-word;
+            white-space: normal;
+        }
+
+        .modal {
+            z-index: 100000 !important;
+        }
+
+        .select2-container--open {
+            z-index: 9999999 !important;
+        }
+
+        #loadingoverlay[style*="display: block"] {
+            display: flex !important;
+        }
+
+        #loadingoverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            display: none;
+            
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .loader1 {
+            position: fixed;
+            width: 210px;
+            height: 210px;
+            will-change: transform;
+            border: 5px solid transparent;
+            border-top: 5px solid #800000;
+            border-radius: 50%;
+            animation: spin-steps 0.8s linear infinite;
+        }
+
+        .loader2 {
+            position: fixed;
+            width: 230px;
+            height: 230px;
+            border: 5px solid transparent;
+            border-top: 5px solid #DBB312;
+            border-radius: 50%;
+            will-change: transform;
+            animation: spin-steps 1.2s linear infinite;
+        }
+
+        .loader3 {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            border: 5px solid transparent;
+            border-top: 5px solid #F6F5F1;
+            border-radius: 50%;
+            will-change: transform;
+            animation: spin-steps 1.6s linear infinite;
+        }
+
+        .logojk {
+            width: 120px;
+            height: 60px;
+            background-image: url('../IconPath/ojk.png'); /* Path ke logo */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        
+    </style>
+    
+
+    <script>
+        $(document).ready(function () {
+            var locale = sessionStorage.getItem("locale");
+            DevExpress.localization.locale(navigator.languages && navigator.languages[0] ||
+                navigator.language ||
+                navigator.userLanguage);
+        });
+    </script>
+
+
+<div class="modal inmodal fade" id="r-Picker" tabindex="-1" role="dialog" aria-hidden="true">
+            <form role="form" action="https://sipb.ojk.go.id/ChangeRole" method="post">
+                <input name="__RequestVerificationToken" type="hidden" value="Y6jqbdsajo8DX5xjP_D_JBNxwgyhmvxVmCXhgaZ0PDeFh6eMEduiqUeq8ae4f3Lvvfpk0Dvs84JdtK6PifhZXjMnDveZvbusrjepLajC3foL-H1PvIeUYiF0R4BFkjY30">
+                
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                            <h3>Ganti Peran</h3>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table footable footable-loaded no-paging">
+                                <thead>
+                                    <tr>
+                                        <th class="footable-sortable">Nama Peran<span class="footable-sort-indicator"></span></th>
+                                        <th class="footable-sortable"><span class="footable-sort-indicator"></span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="footable-even" style="display: table-row;"><td>SIP BPR Super Administrator</td><td><input type="radio" name="roleId" value="2120"></td></tr><tr class="footable-odd" style="display: table-row;"><td>SIP DPKP</td><td><input type="radio" name="roleId" value="2191"></td></tr><tr class="footable-even" style="display: table-row;"><td>SIP BU Drafter</td><td><input type="radio" name="roleId" value="2503" checked="checked"></td></tr><tr class="footable-odd" style="display: table-row;"><td>SIP BU Administrator</td><td><input type="radio" name="roleId" value="2502"></td></tr><tr class="footable-even" style="display: table-row;"><td>SIP BPR Viewer</td><td><input type="radio" name="roleId" value="2122"></td></tr><tr class="footable-odd" style="display: table-row;"><td>SIP BPR Pengawas</td><td><input type="radio" name="roleId" value="2119"></td></tr><tr class="footable-even" style="display: table-row;"><td>SIP BUS Drafter</td><td><input type="radio" name="roleId" value="2536"></td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-white" data-dismiss="modal">Batal</button>
+                            <button type="submit" class="btn btn-primary">Pilih</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div><div class="modal inmodal fade" id="g-param-change" tabindex="-1" role="dialog" aria-hidden="true">
+                <form role="form" action="https://sipb.ojk.go.id/GlobalParameter/ChangeParameter" method="post">
+                    
+                    <input name="__RequestVerificationToken" type="hidden" value="NJAZxDYso1Ztrb0K0BZK8LvFHHSNwUyE_XwzFq9FyeTz9GjxxfghouXqEgdb-GOo4jJ8TsB-PeMI0jviGlOrEcUBf64oehJZtIH_97qIOJ09CuhDfJgsQw2OAHeNfOGC0">
+                    
+                    <input type="hidden" name="referrer" value="/">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                <span class="form-title">Ubah Parameter</span>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="form-inline" id="g-param-search" style="display: none;">
+                                        <div class="form-group">
+                                            <select id="g-param-sectorList" class="form-control input-sm inline font-11"></select>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control input-sm font-12" id="g-param-keyword" placeholder="Nama atau Sandi">
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary btn-sm" type="button" id="g-param-btnSearch" onclick="gPickerSearchEntity(); return false;"> Cari</button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div id="g-param-divEntity" class="table-responsive m-t table-entity" style="display: none;">
+                                        <div id="g-param-divEntityMainContainer">
+                                            <table class="table invoice-table" id="g-param-tabelEntity">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nama</th>
+                                                        <th>Sandi</th>
+                                                        <th>Jenis Lembaga</th>
+                                                        <th>Status</th> 
+                                                        <th></th>
+                                                        <th style="display:none"></th>
+                                                        <th style="display:none"></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr></tr>
+                                                </tbody>
+                                                <tfoot>
+                                                    <tr>
+                                                        <td colspan="5" class="footable-visible">
+                                                            <ul class="pagination pull-right">
+                                                                <li class="footable-page-arrow disabled" id="g-param-aPrevious">
+                                                                    <a href="https://sipb.ojk.go.id/#" onclick="gPickerGetPreviousEntity()">‹</a>
+                                                                </li>
+                                                                <li><span id="g-param-pagerInfo">Page 1 of 1</span></li>
+                                                                <li class="footable-page-arrow" id="g-param-aNext">
+                                                                    <a href="https://sipb.ojk.go.id/#" onclick="gPickerGetNextEntity()">›</a>
+                                                                </li>
+                                                            </ul>
+                                                        </td>
+                                                    </tr>
+                                                </tfoot>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <!--end row-->
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-inline">
+                                                
+                                                    <div class="form-group" id="row-g-param-bulan">
+                                                        <label class="control-label">Periode</label>
+                                                        <select name="bulan" id="g-param-bulan" class="form-control input-sm inline font-11">
+                                                            <option value="1">January</option>
+<option value="2">February</option>
+<option value="3">March</option>
+<option value="4">April</option>
+<option value="5">May</option>
+<option value="6" selected="">June</option>
+<option value="7">July</option>
+<option value="8">August</option>
+<option value="9">September</option>
+<option value="10">October</option>
+<option value="11">November</option>
+<option value="12">December</option>
+
+                                                        </select>
+                                                    </div>
+
+                                                <div class="form-group" id="row-g-param-tahun">
+                                                    <label class="control-label">Tahun </label>
+                                                    <select name="tahun" id="g-param-tahun" class="form-control input-sm inline font-11">
+                                                        <option value="2027">2027</option>
+<option value="2026" selected="">2026</option>
+<option value="2025">2025</option>
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022">2022</option>
+<option value="2021">2021</option>
+<option value="2020">2020</option>
+<option value="2019">2019</option>
+<option value="2018">2018</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <!--<div class="form-group" id="row-g-param-triwulan">
+                                                    <label class="control-label">Triwulan</label>
+                                                    <select name="triwulan" id="g-param-triwulan" class="form-control input-sm inline font-11">-->
+                                                        
+                                                        <!--
+                                                    </select>
+                                                </div>-->
+
+
+                                                <div class="form-group" id="row-g-param-tipe-sp" style="display:none">
+                                                    <label class="control-label">Tipe SP</label>
+                                                    <select name="TipeSP" id="g-param-tipe-SP" class="form-control input-sm inline font-11"></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!--end modal body-->
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-sm btn-white" data-dismiss="modal">Batal</button>
+                                <button type="submit" class="btn btn-sm btn-primary" id="btn-submit">Ubah</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <script>
+                    $("#g-param-keyword").keyup(function (event) {
+                        if (event.keyCode == 13) {
+                            $("#g-param-btnSearch").click();
+                        }
+                    });
+                    $("#g-param-keyword").keydown(function (event) {
+                        if (event.keyCode == 13) {
+                            event.preventDefault();
+                            return false;
+                        }
+                    });
+                </script>
+
+            </div></body></html>
