@@ -120,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         statusKeterlambatanPengawas: document.getElementById('status-keterlambatan-pengawas'),
         tanggalLaporPengawas: document.getElementById('tanggal-lapor-pengawas'),
-        tanggalBatasPelaporanPengawas: document.getElementById('tanggal-batas-pelaporan-pengawas'),
         jumlahHariKeterlambatanPengawas: document.getElementById('jumlah-hari-keterlambatan-pengawas'),
         checkboxSesuaiSistem: document.getElementById('checkbox-sesuai-sistem'),
         
@@ -280,8 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
             formInputs.nomorPeraturan,
             formInputs.pasalPelanggaran,
             formInputs.statusKeterlambatanPengawas,
-            formInputs.tanggalLaporPengawas,
-            formInputs.tanggalBatasPelaporanPengawas
+            formInputs.tanggalLaporPengawas
         ];
 
         fields.forEach(field => {
@@ -304,8 +302,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const pengawasFields = [
             formInputs.statusKeterlambatanPengawas,
-            formInputs.tanggalLaporPengawas,
-            formInputs.tanggalBatasPelaporanPengawas
+            formInputs.tanggalLaporPengawas
         ];
         
         pengawasFields.forEach(field => {
@@ -328,9 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (formInputs.tanggalLapor && formInputs.tanggalLaporPengawas) {
                 formInputs.tanggalLaporPengawas.value = formInputs.tanggalLapor.value;
             }
-            if (formInputs.tanggalBatasPelaporan && formInputs.tanggalBatasPelaporanPengawas) {
-                formInputs.tanggalBatasPelaporanPengawas.value = formInputs.tanggalBatasPelaporan.value;
-            }
+
             if (formInputs.jumlahHariKeterlambatan && formInputs.jumlahHariKeterlambatanPengawas) {
                 formInputs.jumlahHariKeterlambatanPengawas.value = formInputs.jumlahHariKeterlambatan.value;
             }
@@ -527,7 +522,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 jumlahHariKeterlambatan: formInputs.jumlahHariKeterlambatan.value,
                 statusKeterlambatanPengawas: formInputs.statusKeterlambatanPengawas ? formInputs.statusKeterlambatanPengawas.value : '',
                 tanggalLaporPengawas: formInputs.tanggalLaporPengawas ? formInputs.tanggalLaporPengawas.value : '',
-                tanggalBatasPelaporanPengawas: formInputs.tanggalBatasPelaporanPengawas ? formInputs.tanggalBatasPelaporanPengawas.value : '',
                 jumlahHariKeterlambatanPengawas: formInputs.jumlahHariKeterlambatanPengawas ? formInputs.jumlahHariKeterlambatanPengawas.value : '',
                 sesuaiSistem: formInputs.checkboxSesuaiSistem ? formInputs.checkboxSesuaiSistem.checked : true,
                 jenisPelanggaran: formInputs.jenisPelanggaran.value,
@@ -664,7 +658,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Pasal Pelanggaran': formInputs.pasalPelanggaran.value || '-',
                 
                 'Jenis Sanksi': formInputs.jenisSanksi.value || '-',
-                'Nominal Denda': formInputs.nominalDenda.value || '0'
+                'Nominal Denda': formInputs.nominalDenda.value || '0',
+                'Nominal Denda Pengawas': formInputs.nominalDendaPengawas ? formInputs.nominalDendaPengawas.value : '-'
             };
             
             // Format nominal denda to be readable in document if not 0
@@ -1012,20 +1007,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             
-            tr.innerHTML = `
-                <td>${item.tanggal}</td>
-                <td><strong>${displayNama}</strong></td>
-                <td>${item.formState?.sektorPujkPerusahaan || item.formState?.sektorPujkIndividu || '-'}</td>
-                <td>${item.formState?.namaLaporan || '-'}</td>
-                <td>${item.formState?.periodeLaporan || '-'}</td>
-                <td>${item.formState?.statusKeterlambatan || '-'}</td>
-                <td>${displayJenisSanksi}</td>
-                <td>${formattedDenda}</td>
-                <td><span class="badge ${item.statusClass}">${item.status}</span></td>
-                <td style="white-space: nowrap;">
-                    <button class="btn btn-ghost btn-icon btn-edit-row" data-index="${index}" title="Edit">✏️</button>
-                </td>
-            `;
+                let actionButtons = `<button class="btn btn-ghost btn-icon btn-edit-row" data-index="${index}" title="Edit">✏️</button>`;
+                
+                if (item.status === 'Dalam Proses Approve') {
+                    actionButtons = `
+                        <button class="btn btn-ghost btn-icon btn-view-row" data-index="${index}" title="Lihat">👁️</button>
+                        <button class="btn btn-ghost btn-icon btn-approve-row" data-index="${index}" title="Approve">✅</button>
+                    `;
+                }
+
+                tr.innerHTML = `
+                    <td>${item.tanggal}</td>
+                    <td><strong>${displayNama}</strong></td>
+                    <td>${item.formState?.sektorPujkPerusahaan || item.formState?.sektorPujkIndividu || '-'}</td>
+                    <td>${item.formState?.namaLaporan || '-'}</td>
+                    <td>${item.formState?.periodeLaporan || '-'}</td>
+                    <td>${item.formState?.statusKeterlambatan || '-'}</td>
+                    <td>${displayJenisSanksi}</td>
+                    <td>${formattedDenda}</td>
+                    <td><span class="badge ${item.statusClass}">${item.status}</span></td>
+                    <td style="white-space: nowrap;">
+                        ${actionButtons}
+                    </td>
+                `;
             tableBody.appendChild(tr);
         });
 
@@ -1093,6 +1097,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (pengawasSanksiContainer) pengawasSanksiContainer.style.display = 'block';
                 if (typeof updatePengawasFieldsState === 'function') updatePengawasFieldsState();
                 if (typeof updatePengawasSanksiFieldsState === 'function') updatePengawasSanksiFieldsState();
+            });
+        });
+
+        document.querySelectorAll('.btn-approve-row').forEach(btn => {
+            btn.addEventListener('click', function() {
+                if (confirm('Apakah Anda yakin ingin menyetujui sanksi ini?')) {
+                    const idx = parseInt(this.getAttribute('data-index'), 10);
+                    const item = globalData.history[idx];
+                    
+                    if (item.statusClass === 'pending') {
+                        globalData.stats.pending = Math.max(0, globalData.stats.pending - 1);
+                        globalData.stats.selesai++;
+                    }
+                    
+                    item.status = 'Sudah Approve';
+                    item.statusClass = 'selesai';
+                    
+                    renderTable();
+                    alert('Sanksi telah disetujui.');
+                }
             });
         });
 
