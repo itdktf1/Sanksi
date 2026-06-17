@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnDraftForm = document.getElementById('btn-draft-form');
     const btnReviewForm = document.getElementById('btn-review-form');
     const btnKirimForm = document.getElementById('btn-kirim-form');
+    const btnApproveForm = document.getElementById('btn-approve-form');
 
     // Stats Elements
     const statDraft = document.getElementById('stat-draft');
@@ -121,6 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
         statusKeterlambatanPengawas: document.getElementById('status-keterlambatan-pengawas'),
         tanggalLaporPengawas: document.getElementById('tanggal-lapor-pengawas'),
         jumlahHariKeterlambatanPengawas: document.getElementById('jumlah-hari-keterlambatan-pengawas'),
+        catatanDasarPengawas: document.getElementById('catatan-dasar-pengawas'),
         checkboxSesuaiSistem: document.getElementById('checkbox-sesuai-sistem'),
         
         jenisPelanggaran: document.getElementById('jenis-pelanggaran'),
@@ -279,7 +281,9 @@ document.addEventListener('DOMContentLoaded', () => {
             formInputs.nomorPeraturan,
             formInputs.pasalPelanggaran,
             formInputs.statusKeterlambatanPengawas,
-            formInputs.tanggalLaporPengawas
+            formInputs.tanggalLaporPengawas,
+            formInputs.catatanDasarPengawas,
+            formInputs.nominalDenda
         ];
 
         fields.forEach(field => {
@@ -302,7 +306,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const pengawasFields = [
             formInputs.statusKeterlambatanPengawas,
-            formInputs.tanggalLaporPengawas
+            formInputs.tanggalLaporPengawas,
+            formInputs.jumlahHariKeterlambatanPengawas,
+            formInputs.catatanDasarPengawas
         ];
         
         pengawasFields.forEach(field => {
@@ -382,10 +388,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 formInputs.nominalDendaPengawas.value = formInputs.nominalDenda.value;
             }
         }
+
+        // Auto kosong dan tidak bisa diedit untuk Nominal Denda jika Jenis Sanksi tertentu
+        if (formInputs.jenisSanksiPengawas && formInputs.nominalDendaPengawas) {
+            const val = formInputs.jenisSanksiPengawas.value;
+            const noDendaList = [
+                'Tidak dikenakan sanksi',
+                'Sanksi peringatan dan teguran - Peringatan tertulis',
+                'Sanksi peringatan dan teguran - Teguran tertulis'
+            ];
+            if (noDendaList.includes(val)) {
+                formInputs.nominalDendaPengawas.value = '';
+                formInputs.nominalDendaPengawas.disabled = true;
+                formInputs.nominalDendaPengawas.style.background = '#e9ecef';
+                formInputs.nominalDendaPengawas.style.cursor = 'not-allowed';
+            }
+        }
     }
 
     if (formInputs.checkboxSesuaiSistemSanksi) {
         formInputs.checkboxSesuaiSistemSanksi.addEventListener('change', updatePengawasSanksiFieldsState);
+    }
+
+    if (formInputs.jenisSanksiPengawas) {
+        formInputs.jenisSanksiPengawas.addEventListener('change', updatePengawasSanksiFieldsState);
     }
     
     [formInputs.jenisSanksi, formInputs.nominalDenda].forEach(field => {
@@ -523,6 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 statusKeterlambatanPengawas: formInputs.statusKeterlambatanPengawas ? formInputs.statusKeterlambatanPengawas.value : '',
                 tanggalLaporPengawas: formInputs.tanggalLaporPengawas ? formInputs.tanggalLaporPengawas.value : '',
                 jumlahHariKeterlambatanPengawas: formInputs.jumlahHariKeterlambatanPengawas ? formInputs.jumlahHariKeterlambatanPengawas.value : '',
+                catatanDasarPengawas: formInputs.catatanDasarPengawas ? formInputs.catatanDasarPengawas.value : '',
                 sesuaiSistem: formInputs.checkboxSesuaiSistem ? formInputs.checkboxSesuaiSistem.checked : true,
                 jenisPelanggaran: formInputs.jenisPelanggaran.value,
                 subJenisPelanggaran: formInputs.subJenisPelanggaran.value,
@@ -618,8 +645,65 @@ document.addEventListener('DOMContentLoaded', () => {
         addDataToHistory('Draft');
     });
 
+    if (btnApproveForm) {
+        btnApproveForm.addEventListener('click', () => {
+            if (confirm('Apakah Anda yakin ingin menyetujui sanksi ini?')) {
+                if (currentEditIndex !== null) {
+                    const item = globalData.history[currentEditIndex];
+                    if (item.statusClass === 'pending') {
+                        globalData.stats.pending = Math.max(0, globalData.stats.pending - 1);
+                        globalData.stats.selesai++;
+                    }
+                    item.status = 'Sudah Approve';
+                    item.statusClass = 'selesai';
+                    
+                    // Add to riwayat
+                    let profilName = '';
+                    const radioPerusahaan = document.querySelector('input[name="tipe-subjek"][value="perusahaan"]');
+                    const isPerusahaan = radioPerusahaan ? radioPerusahaan.checked : true;
+                    if (isPerusahaan) {
+                        const nama = formInputs.namaPerusahaan.value.trim();
+                        profilName = nama ? `${nama}(Perusahaan)` : '';
+                    } else {
+                        const nama = formInputs.namaIndividu.value.trim();
+                        profilName = nama ? `${nama}(Individu)` : '';
+                    }
+                    const catatan = formInputs.catatanPengawas ? formInputs.catatanPengawas.value : 'Disetujui';
+                    
+                    if (profilName) {
+                        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+                        const riwayatData = {
+                            "Nama Profil": profilName,
+                            "Status Konseptor": "Approver",
+                            "Catatan": catatan,
+                            "Tanggal": new Date().toLocaleDateString('id-ID', options)
+                        };
+                        fetch('/add-riwayat', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(riwayatData)
+                        }).catch(e => console.error(e));
+                    }
+
+                    renderTable();
+                    navigateTo('page-dashboard');
+                    alert('Sanksi telah disetujui.');
+                }
+            }
+        });
+    }
+
     if (btnReviewForm) {
         btnReviewForm.addEventListener('click', async () => {
+            const jenisSanksiPengawasVal = formInputs.jenisSanksiPengawas ? formInputs.jenisSanksiPengawas.value : '-';
+            const jenisSanksiAsliVal = formInputs.jenisSanksi ? formInputs.jenisSanksi.value : '-';
+            const sanksiAktif = (jenisSanksiPengawasVal && jenisSanksiPengawasVal !== '-') ? jenisSanksiPengawasVal : jenisSanksiAsliVal;
+            
+            if (sanksiAktif === 'Tidak dikenakan sanksi') {
+                alert('Tidak ada Review Surat karena Jenis Sanksi adalah "Tidak dikenakan sanksi".');
+                return;
+            }
+
             const checkedRadio = document.querySelector('input[name="tipe-subjek"]:checked');
             const isPerusahaan = checkedRadio ? (checkedRadio.value === 'perusahaan') : true;
             const state = {
@@ -659,12 +743,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 'Jenis Sanksi': formInputs.jenisSanksi.value || '-',
                 'Nominal Denda': formInputs.nominalDenda.value || '0',
+                'Jenis Sanksi Pengawas': formInputs.jenisSanksiPengawas ? formInputs.jenisSanksiPengawas.value : '-',
                 'Nominal Denda Pengawas': formInputs.nominalDendaPengawas ? formInputs.nominalDendaPengawas.value : '-'
             };
             
             // Format nominal denda to be readable in document if not 0
-            if (state['Nominal Denda'] !== '0' && state['Nominal Denda'] !== '-') {
-                const rawNominal = unformatCurrency(state['Nominal Denda']);
+            let nominalUntukTerbilang = state['Nominal Denda Pengawas'] && state['Nominal Denda Pengawas'] !== '-' ? state['Nominal Denda Pengawas'] : state['Nominal Denda'];
+            if (nominalUntukTerbilang !== '0' && nominalUntukTerbilang !== '-') {
+                const rawNominal = unformatCurrency(nominalUntukTerbilang);
                 
                 // Terbilang sederhana
                 let terbilang = "";
@@ -849,6 +935,16 @@ document.addEventListener('DOMContentLoaded', () => {
             .forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
         document.querySelectorAll('.combobox-wrapper.open')
             .forEach(w => w.classList.remove('open'));
+            
+        const btnKembalikanDrafter = document.getElementById('btn-kembalikan-drafter');
+        if (btnKembalikanDrafter && formInputs.rolePengawas) {
+            if (formInputs.rolePengawas.value === 'Drafter') {
+                btnKembalikanDrafter.style.display = 'none';
+            } else {
+                btnKembalikanDrafter.style.display = '';
+            }
+        }
+        
         modalKirim.classList.add('active');
     }
 
@@ -942,13 +1038,14 @@ document.addEventListener('DOMContentLoaded', () => {
         tbodyKonf.innerHTML = '';
         
         if (!konfigurasiData || konfigurasiData.length === 0) {
-            tbodyKonf.innerHTML = '<tr><td colspan="7" class="text-center">Data kosong</td></tr>';
+            tbodyKonf.innerHTML = '<tr><td colspan="8" class="text-center">Data kosong</td></tr>';
             return;
         }
 
         konfigurasiData.forEach((item, index) => {
             const tr = document.createElement('tr');
             tr.innerHTML = `
+                <td>${item.kodeLaporan || '-'}</td>
                 <td>${item.sumberAplikasi || '-'}</td>
                 <td>${item.sektor || '-'}</td>
                 <td>${item.namaLaporan || '-'}</td>
@@ -1009,10 +1106,10 @@ document.addEventListener('DOMContentLoaded', () => {
             
                 let actionButtons = `<button class="btn btn-ghost btn-icon btn-edit-row" data-index="${index}" title="Edit">✏️</button>`;
                 
-                if (item.status === 'Dalam Proses Approve') {
+                if (item.status === 'Sudah Approve') {
                     actionButtons = `
-                        <button class="btn btn-ghost btn-icon btn-view-row" data-index="${index}" title="Lihat">👁️</button>
-                        <button class="btn btn-ghost btn-icon btn-approve-row" data-index="${index}" title="Approve">✅</button>
+                        <button class="btn btn-ghost btn-icon btn-view-row" data-index="${index}" title="View">👁️</button>
+                        <button class="btn btn-ghost btn-icon btn-mail-row" data-index="${index}" title="Kirim ke Mail">📧</button>
                     `;
                 }
 
@@ -1100,22 +1197,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        document.querySelectorAll('.btn-approve-row').forEach(btn => {
+        document.querySelectorAll('.btn-mail-row').forEach(btn => {
             btn.addEventListener('click', function() {
-                if (confirm('Apakah Anda yakin ingin menyetujui sanksi ini?')) {
-                    const idx = parseInt(this.getAttribute('data-index'), 10);
-                    const item = globalData.history[idx];
-                    
-                    if (item.statusClass === 'pending') {
-                        globalData.stats.pending = Math.max(0, globalData.stats.pending - 1);
-                        globalData.stats.selesai++;
-                    }
-                    
-                    item.status = 'Sudah Approve';
-                    item.statusClass = 'selesai';
-                    
-                    renderTable();
-                    alert('Sanksi telah disetujui.');
+                if (confirm('Apakah Anda yakin ingin mengirim dokumen sanksi ini ke email PUJK?')) {
+                    alert('Dokumen berhasil dikirim ke email PUJK.');
                 }
             });
         });
@@ -1209,6 +1294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formInputs.tanggalLaporPengawas) formInputs.tanggalLaporPengawas.value = state.tanggalLaporPengawas || '';
         if (formInputs.tanggalBatasPelaporanPengawas) formInputs.tanggalBatasPelaporanPengawas.value = state.tanggalBatasPelaporanPengawas || '';
         if (formInputs.jumlahHariKeterlambatanPengawas) formInputs.jumlahHariKeterlambatanPengawas.value = state.jumlahHariKeterlambatanPengawas || '';
+        if (formInputs.catatanDasarPengawas) formInputs.catatanDasarPengawas.value = state.catatanDasarPengawas || '';
         formInputs.jenisPelanggaran.value = state.jenisPelanggaran || '';
         formInputs.subJenisPelanggaran.value = state.subJenisPelanggaran || '';
         formInputs.subSubJenisPelanggaran.value = state.subSubJenisPelanggaran || '';
@@ -1239,6 +1325,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
             formInputs.rolePengawas.value = derivedRole;
+            if (btnApproveForm) {
+                if (derivedRole === 'Approver') {
+                    btnApproveForm.style.display = 'block';
+                } else {
+                    btnApproveForm.style.display = 'none';
+                }
+            }
         }
         if (formInputs.catatanPengawas) {
             formInputs.catatanPengawas.value = state.catatanPengawas || '';
@@ -1698,6 +1791,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('konf-batasWaktuLibur').value = item.batasWaktuLibur || '';
         document.getElementById('konf-ketentuanKahar').value = item.ketentuanKahar || '';
         document.getElementById('konf-jenisSanksi').value = item.jenisSanksi || '';
+        document.getElementById('konf-nominalDenda').value = item.nominalDenda || '';
         document.getElementById('konf-status').value = item.status || '';
         
         document.getElementById('page-dashboard').classList.remove('active');
@@ -1723,6 +1817,90 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('page-dashboard').classList.add('active');
         });
     }
+
+    function setupRichTextEditor(textareaId) {
+        const textarea = document.getElementById(textareaId);
+        if (!textarea) return;
+
+        textarea.style.display = 'none';
+
+        const container = document.createElement('div');
+        container.style.backgroundColor = textarea.disabled ? '#e9ecef' : 'white';
+        container.style.minHeight = '100px';
+        textarea.parentNode.insertBefore(container, textarea.nextSibling);
+
+        const quill = new Quill(container, {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    [{ 'align': [] }],
+                    ['clean']
+                ]
+            }
+        });
+        
+        if (textarea.disabled) {
+            quill.enable(false);
+            const toolbar = container.previousElementSibling;
+            if (toolbar && toolbar.classList.contains('ql-toolbar')) {
+                toolbar.style.display = 'none';
+            }
+        }
+        
+        if (textarea.value) {
+            quill.root.innerHTML = textarea.value;
+        }
+
+        quill.on('text-change', function() {
+            if (textarea.value !== quill.root.innerHTML) {
+                const desc = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(textarea), 'value');
+                if (desc) {
+                    desc.set.call(textarea, quill.root.innerHTML);
+                } else {
+                    textarea.value = quill.root.innerHTML;
+                }
+                textarea.dispatchEvent(new Event('input', { bubbles: true }));
+                textarea.dispatchEvent(new Event('change', { bubbles: true }));
+            }
+        });
+
+        const valDesc = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(textarea), 'value');
+        if (valDesc) {
+            Object.defineProperty(textarea, 'value', {
+                get: function() { return valDesc.get.call(this); },
+                set: function(val) {
+                    valDesc.set.call(this, val);
+                    if (quill.root.innerHTML !== val) {
+                        quill.root.innerHTML = val || '';
+                    }
+                }
+            });
+        }
+
+        const disDesc = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'disabled') || Object.getOwnPropertyDescriptor(Object.getPrototypeOf(textarea), 'disabled') || Object.getOwnPropertyDescriptor(HTMLElement.prototype, 'disabled');
+        if (disDesc) {
+            Object.defineProperty(textarea, 'disabled', {
+                get: function() { return disDesc.get.call(this); },
+                set: function(val) {
+                    disDesc.set.call(this, val);
+                    quill.enable(!val);
+                    container.style.backgroundColor = val ? '#e9ecef' : 'white';
+                    const toolbar = container.previousElementSibling;
+                    if (toolbar && toolbar.classList.contains('ql-toolbar')) {
+                        toolbar.style.display = val ? 'none' : 'block';
+                    }
+                }
+            });
+        }
+    }
+
+    setupRichTextEditor('catatan-dasar-pengawas');
+    setupRichTextEditor('deskripsi-pelanggaran');
+    setupRichTextEditor('catatan-sanksi-pengawas');
+    setupRichTextEditor('catatan-pengawas');
 
     loadData();
     updatePreview(); 

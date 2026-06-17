@@ -23,6 +23,7 @@ def generate():
             "batasWaktuLibur": str(row.get('Batas Waktu Pelaporan pada Hari Libur', '')).strip() if pd.notna(row.get('Batas Waktu Pelaporan pada Hari Libur')) else "",
             "ketentuanKahar": str(row.get('Ketentuan Keadaan Kahar', '')).strip() if pd.notna(row.get('Ketentuan Keadaan Kahar')) else "",
             "jenisSanksi": str(row.get('Jenis Sanksi', '')).strip() if pd.notna(row.get('Jenis Sanksi')) else "",
+            "nominalDenda": str(row.get('Nominal Denda', '')).strip() if pd.notna(row.get('Nominal Denda')) else "",
             "status": str(row.get('Status', '')).strip() if pd.notna(row.get('Status')) else ""
         }
         data.append(item)

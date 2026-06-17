@@ -9,6 +9,9 @@
     <!-- docx-preview dependencies -->
     <script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
     <script src="https://unpkg.com/docx-preview/dist/docx-preview.min.js"></script>
+    <!-- Quilljs dependencies -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
 </head>
 <body>
     <div id="app">
@@ -117,6 +120,7 @@
                         <table class="data-table">
                             <thead>
                                 <tr>
+                                    <th>Kode Laporan</th>
                                     <th>Sumber Aplikasi</th>
                                     <th>Sektor</th>
                                     <th>Nama Laporan</th>
@@ -379,6 +383,10 @@
                                         <label for="jumlah-hari-keterlambatan-pengawas">Jumlah Hari Keterlambatan (Pengawas)</label>
                                         <input type="number" id="jumlah-hari-keterlambatan-pengawas" placeholder="0">
                                     </div>
+                                    <div class="form-group" style="grid-column: 1 / -1;">
+                                        <label for="catatan-dasar-pengawas">Catatan</label>
+                                        <textarea id="catatan-dasar-pengawas" placeholder="Masukkan catatan" rows="3"></textarea>
+                                    </div>
                                 </div>
                             </div>
                                 </div>
@@ -445,12 +453,6 @@
                                 <label for="nominal-denda">Nominal Denda</label>
                                 <input type="text" id="nominal-denda" placeholder="Masukkan nominal denda" disabled style="background: #e9ecef; cursor: not-allowed;">
                             </div>
-
-                            <div class="form-group" id="preview-surat-container">
-                                <label>Pratinjau</label>
-                                <button type="button" id="btn-review-form" class="btn btn-secondary" style="display: inline-block; text-align: center; text-decoration: none;">📄 Preview Surat</button>
-                            </div>
-
                             <div id="pengawas-sanksi-container" style="display: none; column-span: all; margin-top: 2rem; padding-top: 1.5rem; border-top: 2px dashed var(--border-color);">
                                 <div style="grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
                                     <h4 style="color: var(--primary-color); margin: 0;">Data Pengawas</h4>
@@ -500,9 +502,15 @@
                                 <button type="button" id="btn-riwayat" class="btn btn-secondary">Lihat Riwayat Persetujuan</button>
                             </div>
 
+                            <div class="form-group" id="preview-surat-container">
+                                <label>Pratinjau</label>
+                                <button type="button" id="btn-review-form" class="btn btn-secondary" style="display: inline-block; text-align: center; text-decoration: none;">📄 Preview Surat</button>
+                            </div>
+
                             <div class="form-actions" style="display: flex; gap: 10px; flex-wrap: wrap; grid-column: 1 / -1; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border-color, #e2e8f0);">
                                 <button type="button" id="btn-draft-form" class="btn btn-secondary" style="flex: 1;">Simpan</button>
                                 <button type="button" id="btn-kirim-form" class="btn btn-primary" style="flex: 1;">Kirim</button>
+                                <button type="button" id="btn-approve-form" class="btn btn-success" style="flex: 1; display: none; background: #10b981; color: white; border: none; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 500; cursor: pointer;">Approve</button>
                             </div>
                                 </div>
                             </div> <!-- End tabs-content -->
@@ -649,6 +657,10 @@
                             <div class="form-group">
                                 <label>Jenis Sanksi</label>
                                 <input type="text" id="konf-jenisSanksi">
+                            </div>
+                            <div class="form-group">
+                                <label>Nominal Denda</label>
+                                <input type="text" id="konf-nominalDenda">
                             </div>
                             <div class="form-group">
                                 <label>Status</label>

@@ -30,10 +30,20 @@ def format_date_indo(date_str):
 def generate_surat():
     data = request.json
     tipe_subjek = data.get('tipeSubjek', 'perusahaan')
-    jenis_sanksi = data.get('Jenis Sanksi', '')
+    jenis_sanksi = data.get('Jenis Sanksi Pengawas')
+    if not jenis_sanksi or jenis_sanksi == '-':
+        jenis_sanksi = data.get('Jenis Sanksi', '')
+    data['Jenis Sanksi'] = jenis_sanksi
     print(f"DEBUG: Jenis Sanksi received = '{jenis_sanksi}'")
     
-    if 'sanksi denda' in jenis_sanksi.lower():
+    sanksi_tipe_1_2 = [
+        'Sanksi peringatan dan teguran - Peringatan tertulis',
+        'Sanksi peringatan dan teguran - Teguran tertulis',
+        'Sanksi denda - Denda',
+        'Sanksi denda - Denda yaitu kewajiban untuk membayar sejumlah uang tertentu'
+    ]
+    
+    if 'sanksi denda' in jenis_sanksi.lower() and jenis_sanksi not in sanksi_tipe_1_2:
         template_path = 'Konsep Usulan Surat Pengenaan Sanksi Denda.docx'
         
         # Date mapping

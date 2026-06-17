@@ -16,6 +16,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "250000",
         "status": "Aktif"
     },
     {
@@ -35,6 +36,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "1800000",
         "status": "Aktif"
     },
     {
@@ -54,6 +56,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "500000",
         "status": "Aktif"
     },
     {
@@ -73,6 +76,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "2050000",
         "status": "Aktif"
     },
     {
@@ -92,6 +96,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "600000",
         "status": "Aktif"
     },
     {
@@ -111,6 +116,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "2250000",
         "status": "Non Aktif"
     },
     {
@@ -130,6 +136,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "250000",
         "status": "Aktif"
     },
     {
@@ -149,6 +156,7 @@
         "batasWaktuLibur": "wajib menyampaikan Laporan Berkala pada 1 (satu) hari kerja berikutnya.",
         "ketentuanKahar": "wajib menyampaikan surat pemberitahuan secara tertulis kepada Otoritas Jasa Keuangan untuk memperoleh penundaan batas waktu penyampaian Laporan Berkala paling lambat 1 (satu) hari kerja sejak terjadinya keadaan kahar dimaksud.",
         "jenisSanksi": "Sanksi denda - Denda administratif",
+        "nominalDenda": "2500000",
         "status": "Non Aktif"
     }
 ]
