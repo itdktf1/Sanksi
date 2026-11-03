@@ -22,6 +22,9 @@ def generate():
             "batasWaktu": str(row.get('Batas Waktu Pelaporan (sesuai dengan bahasa ketentuan)', '')).strip() if pd.notna(row.get('Batas Waktu Pelaporan (sesuai dengan bahasa ketentuan)')) else "",
             "batasWaktuLibur": str(row.get('Batas Waktu Pelaporan pada Hari Libur', '')).strip() if pd.notna(row.get('Batas Waktu Pelaporan pada Hari Libur')) else "",
             "ketentuanKahar": str(row.get('Ketentuan Keadaan Kahar', '')).strip() if pd.notna(row.get('Ketentuan Keadaan Kahar')) else "",
+            "jenisPelanggaran": str(row.get('Jenis Pelanggaran', '')).strip() if pd.notna(row.get('Jenis Pelanggaran')) else "",
+            "subJenisPelanggaran": str(row.get('Sub Jenis Pelanggaran', '')).strip() if pd.notna(row.get('Sub Jenis Pelanggaran')) else "",
+            "subSubJenisPelanggaran": str(row.get('Sub Sub Jenis Pelanggaran', '')).strip() if pd.notna(row.get('Sub Sub Jenis Pelanggaran')) else "",
             "jenisSanksi": str(row.get('Jenis Sanksi', '')).strip() if pd.notna(row.get('Jenis Sanksi')) else "",
             "nominalDenda": str(row.get('Nominal Denda', '')).strip() if pd.notna(row.get('Nominal Denda')) else "",
             "status": str(row.get('Status', '')).strip() if pd.notna(row.get('Status')) else ""

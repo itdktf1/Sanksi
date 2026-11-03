@@ -1772,7 +1772,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    let currentEditKonfigurasiIndex = -1;
     window.editKonfigurasi = function(index) {
+        currentEditKonfigurasiIndex = index;
         const item = konfigurasiData[index];
         if (!item) return;
         
@@ -1790,6 +1792,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('konf-batasWaktu').value = item.batasWaktu || '';
         document.getElementById('konf-batasWaktuLibur').value = item.batasWaktuLibur || '';
         document.getElementById('konf-ketentuanKahar').value = item.ketentuanKahar || '';
+        document.getElementById('konf-jenisPelanggaran').value = item.jenisPelanggaran || '';
+        document.getElementById('konf-subJenisPelanggaran').value = item.subJenisPelanggaran || '';
+        document.getElementById('konf-subSubJenisPelanggaran').value = item.subSubJenisPelanggaran || '';
         document.getElementById('konf-jenisSanksi').value = item.jenisSanksi || '';
         document.getElementById('konf-nominalDenda').value = item.nominalDenda || '';
         document.getElementById('konf-status').value = item.status || '';
@@ -1811,6 +1816,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnSimpanKonfigurasi = document.getElementById('btn-simpan-konfigurasi');
     if (btnSimpanKonfigurasi) {
         btnSimpanKonfigurasi.addEventListener('click', () => {
+            if (currentEditKonfigurasiIndex >= 0 && konfigurasiData[currentEditKonfigurasiIndex]) {
+                const item = konfigurasiData[currentEditKonfigurasiIndex];
+                item.sumberAplikasi = document.getElementById('konf-sumberAplikasi').value;
+                item.sektor = document.getElementById('konf-sektor').value;
+                item.subSektor = document.getElementById('konf-subSektor').value;
+                item.subSubSektor = document.getElementById('konf-subSubSektor').value;
+                item.namaMenu = document.getElementById('konf-namaMenu').value;
+                item.kodeLaporan = document.getElementById('konf-kodeLaporan').value;
+                item.namaLaporan = document.getElementById('konf-namaLaporan').value;
+                item.nomorPeraturan = document.getElementById('konf-nomorPeraturan').value;
+                item.pasalPelanggaran = document.getElementById('konf-pasalPelanggaran').value;
+                item.frekuensiPelaporan = document.getElementById('konf-frekuensiPelaporan').value;
+                item.batasWaktu = document.getElementById('konf-batasWaktu').value;
+                item.batasWaktuLibur = document.getElementById('konf-batasWaktuLibur').value;
+                item.ketentuanKahar = document.getElementById('konf-ketentuanKahar').value;
+                item.jenisPelanggaran = document.getElementById('konf-jenisPelanggaran').value;
+                item.subJenisPelanggaran = document.getElementById('konf-subJenisPelanggaran').value;
+                item.subSubJenisPelanggaran = document.getElementById('konf-subSubJenisPelanggaran').value;
+                item.jenisSanksi = document.getElementById('konf-jenisSanksi').value;
+                item.nominalDenda = document.getElementById('konf-nominalDenda').value;
+                item.status = document.getElementById('konf-status').value;
+                renderTableKonfigurasi();
+            }
             alert('Konfigurasi berhasil disimpan!');
             document.getElementById('page-editor-konfigurasi').style.display = 'none';
             document.getElementById('page-dashboard').style.display = 'block';
